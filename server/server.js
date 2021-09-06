@@ -1,3 +1,4 @@
+require("dotenv").config();
 /* Import External Modules */
 const path = require("path");
 const express = require('express');
