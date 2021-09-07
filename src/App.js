@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
       {apiData.map((item, i) => {
-        return <img src={item.url} alt='search-result' width="500" height="600" />
+        return <img src={item.url} alt={`Search Result ${i}`} width="500" height="600" />
       })}
     </div>
   );
