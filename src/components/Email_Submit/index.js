@@ -5,7 +5,7 @@ const Email = (props) => {
         <div className="email-input">
             <input 
                 onChange={props.onChange}
-                value={email}
+                value={props.email}
                 title="email"
                 placeholder="Email"
             />
@@ -22,7 +22,7 @@ const Submit = (props) => {
     );
 };
 
-export{
+export {
     Email,
     Submit
 };

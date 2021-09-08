@@ -1,8 +1,19 @@
-import React from "react";
-import Username_Password from "../../components/Username_Password";
+import React, { useState } from "react";
+import { Username_Password, Email, Submit } from "../../components/index";
 
 const SignupPage = () => {
-    <Username_Password />;
+    const [email, setEmail] = useState("");
+    const [buttonText, setButtonText] = useState ("");
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
+
+    return (
+        <div>
+            <Username_Password setName={setName} setPassword={setPassword} />
+            <Email email={email}/>
+            <Submit buttonText={buttonText}/>
+        </div>
+    )
 }
 
 export default SignupPage;
