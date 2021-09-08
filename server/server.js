@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require('cors');
 
 /* Import Internal Modules */
+const routes = require("./routes");
 
 /* Instanced Modules */
 const app = express();
@@ -13,6 +14,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 /* Middleware */
+//Cors
+// app.use(cors());
 app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("public"));
 app.use(express.json());
