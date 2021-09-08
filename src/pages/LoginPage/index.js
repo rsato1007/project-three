@@ -15,4 +15,11 @@ const LoginPage = () => {
         //fill with relevant code when hooked to back-end user api.
     };
     
+    //what actually gets rendered on the page
+    return (
+        <div className="login-form">
+            <Username_Password setName={setName} setPassword={setPassword} />
+            <Submit onClick={handleSubmit} buttonText="test" />
+        </div>
+    )
 }
