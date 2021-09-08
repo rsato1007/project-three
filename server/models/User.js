@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+
+const SALT_ROUNDS = 6;
 
 const schema = new mongoose.Schema ({
     Name: {type: string, required: true},
@@ -7,5 +10,9 @@ const schema = new mongoose.Schema ({
     Bio: {type: string},
 });
 
+schema.pre("save", function (next) {
+    
+});
 
-export default schema;
+const User = mongoose.model("User", schema);
+module.exports = User;
