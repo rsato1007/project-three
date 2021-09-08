@@ -15,7 +15,7 @@ db.once("open", () => {
     console.log("Database has connected");
 });
 
-// module.exports = {
-//     User: require("./User"),
-//     Post: require("./Post"),
-// };
+module.exports = {
+    User: require("./User"),
+    // Post: require("./Post"),
+};
