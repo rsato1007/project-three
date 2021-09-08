@@ -1,5 +1,6 @@
 import { urlencoded } from 'body-parser';
 import React from 'react';
+import SignupPage from './pages/SignUpPage';
 
 /* This file is used to test the API before we try to incorporate it into our code */
 const apiKey = "VR5MXJ8fw0BYcpei2IQf0AUzzmtXirfd";
@@ -20,9 +21,14 @@ function App() {
 
   return (
     <div className="App">
-      {apiData.map((item, i) => {
-        return <img src={item.url} alt={`Search Result ${i}`} width="500" height="600" />
-      })}
+      <div>
+        {apiData.map((item, i) => {
+          return <img src={item.url} alt={`Search Result ${i}`} width="500" height="600" />
+        })}
+      </div>
+      <div>
+        <SignupPage />
+      </div>
     </div>
   );
 }
