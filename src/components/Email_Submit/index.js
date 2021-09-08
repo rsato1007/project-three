@@ -14,7 +14,7 @@ const Email = (props) => {
 };
 
 //button to be used for login and sign up pages, takes functionality and text from parent object
-const LogButton = (props) => {
+const Submit = (props) => {
     return (
         <div className="LogButton">
             <button onClick={props.handleSubmit}>{props.buttonText}</button>
@@ -22,7 +22,7 @@ const LogButton = (props) => {
     );
 };
 
-module.exports = {
+export{
     Email,
-    LogButton
+    Submit
 };
