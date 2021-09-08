@@ -11,7 +11,15 @@ const schema = new mongoose.Schema ({
 });
 
 schema.pre("save", function (next) {
-    
+    const user = this;
+    if (!user.isModified("Password")) return next();
+    // password has been changed - salt and hash it
+    bcrypt.hash(user.Password, SALT_ROUNDS, function (err, hash) {
+        if (err) return next(err);
+        // replace the user provided password with the hash
+        user.Password = hash;
+        next();
+    });
 });
 
 const User = mongoose.model("User", schema);
