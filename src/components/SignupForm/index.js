@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import * as UserActions from "../../api/UserActions";
+import { setToken } from "../../Tools/TokenAction";
 
 const SignupForm = () => {
     // State Variables
+    const history = useHistory();
     const [Name, setName] = useState("");
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
@@ -9,8 +13,13 @@ const SignupForm = () => {
     // Functions
     const handleSubmit = async () => {
         let newUser = { Name, Email, Password };
+        console.log(history);
+        // Redirects to the specified URL
+        history.push("/api/corgi");
         
         // Make Backend Call to Create User
+        const res = await UserActions.make(newUser);
+        console.log('res');
 
         // Extract Token
     }
