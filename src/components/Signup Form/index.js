@@ -1,5 +1,9 @@
 import { response } from 'express';
 import React, { useState } from 'react';
+/* Saving the below for reference for later */
+// import * as UserService from "../../api/UserService";
+// import { useHistory } from "react-router-dom";
+// import { setToken } from "../../utils/tokenService";
 
 /* maybe set should state variables on signup page */
 
@@ -15,6 +19,21 @@ const SignupForm = () => {
         // Make call to backend to create user
 
         // Extract Token
+        if (res.data.data) {
+            console.log(res.data.data);
+            // if (res.data.data.token) {
+            //     const token = res.data.data.token;
+            //     setToken(token);
+            //     setFirstName("");
+            //     setLastName("");
+            //     setEmail("");
+            //     setPassword("");
+            //     //redirect to home
+            //     history.push("/");
+            // }
+        } else {
+            alert("Server Error");
+        }
     }
 
     // Page Render
