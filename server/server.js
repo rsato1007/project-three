@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 
 /* Middleware */
 //Cors
-// app.use(cors());
+app.use(cors());
 app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("public"));
 app.use(express.json());
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 });
 
 /* Routes and Controllers */
-
+app.use("/api", routes);
 /* React.JS Connection */
 app.use((req, res, next) => {
     console.log(req.headers);

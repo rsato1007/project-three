@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+<<<<<<< Updated upstream
 import { useHistory } from "react-router-dom";
 import "./styles.css";
 import * as UserActions from "../../api/UserActions";
@@ -10,11 +11,21 @@ const login = () => {
     const [Password, setPassword] = useState("");
 
     //submit function
+=======
+import { Username_Password, Email, Submit  } from "../../components";
+//forms for login page
+const LoginPage = () => {
+    //allows form to set username and password
+    const [Name, setName] = useState("");
+    const [Password, setPassword] = useState("");
+
+>>>>>>> Stashed changes
     const handleSubmit = async () => {
         const user = {
             Name,
             Password,
         };
+<<<<<<< Updated upstream
 
         //interacts with user api to generate token
         const res = await UserActions.login(user);
@@ -56,3 +67,17 @@ const login = () => {
 };
 
 export default login;
+=======
+        console.log(user);
+        //fill with relevant code when hooked to back-end user api.
+    };
+    
+    //what actually gets rendered on the page
+    return (
+        <div className="login-form">
+            <Username_Password setName={setName} setPassword={setPassword} />
+            <Submit onClick={handleSubmit} buttonText="test" />
+        </div>
+    )
+}
+>>>>>>> Stashed changes
