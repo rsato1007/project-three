@@ -19,7 +19,7 @@ const SignupForm = () => {
         
         // Make Backend Call to Create User
         const res = await UserActions.make(newUser);
-        console.log('res');
+        console.log(res);
 
         // Extract Token
     }
