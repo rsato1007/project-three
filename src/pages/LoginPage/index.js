@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./styles.css";
-//still needs token and user imports
+import * as UserActions from "../../api/UserActions";
+import { createToken } from "../../Tools/TokenAction";
 
 const login = () => {
     const history = useHistory();
@@ -16,7 +17,7 @@ const login = () => {
         };
 
         //interacts with user api to generate token
-        const res = await User.login(user);
+        const res = await UserActions.login(user);
         if (res.data.data) {
             const token = res.data.data.token;
             console.log("Login made this! ", token);
