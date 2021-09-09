@@ -7,11 +7,15 @@ const SignupPage = () => {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
 
+    const handleSubmit = () => {
+        console.log("this way works too!")
+    }
+
     return (
         <div>
             <Username_Password setName={setName} setPassword={setPassword} />
             <Email email={email}/>
-            <Submit buttonText={buttonText}/>
+            <Submit buttonText={"button"} handleSubmit={handleSubmit}/>
         </div>
     )
 }
