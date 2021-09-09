@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 });
 
 /* Routes and Controllers */
-
+app.use("/api", routes);
 /* React.JS Connection */
 app.use((req, res, next) => {
     console.log(req.headers);
