@@ -30,7 +30,7 @@ const show = (req, res) => {
 // Show -get - Comments
 
 const showComments = (req, res) => {
-    db.Post.findById(rew.params.id)
+    db.Post.findById(req.params.id)
         .then((foundPost) => {
             if (!foundPost) return console.log("Error in Comment#show");
 
