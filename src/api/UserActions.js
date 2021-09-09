@@ -2,7 +2,9 @@ import CommonsCommands from "./CommonsCommands";
 import * as TokenAction from "../Tools/TokenAction";
 
 const make = (data) => {
-    return CommonsCommands.post("/auth/login", data);
+    // Should this have a different route?
+    // Changing from /auth/login to /users since that makes more sense.
+    return CommonsCommands.post("/users", data);
 };
 
 const login = (data) => {
