@@ -31,6 +31,13 @@ app.use((req, res, next) => {
 });
 
 /* Routes and Controllers */
+// All routes go through the "/api"
+app.use("/api/*", routes);
+
+// Catches all routes that aren't made
+app.all('/api/*', function (req, res, next) {
+    res.send("This is not a route");
+})
 
 /* React.JS Connection */
 app.use((req, res, next) => {
