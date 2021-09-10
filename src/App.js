@@ -1,6 +1,7 @@
 import { urlencoded } from 'body-parser';
 import React from 'react';
 import SignupPage from './pages/SignUpPage';
+import { GoogleLogin } from 'react-google-login';
 
 /* This file is used to test the API before we try to incorporate it into our code */
 const apiKey = "VR5MXJ8fw0BYcpei2IQf0AUzzmtXirfd";
@@ -9,6 +10,13 @@ const searchTerm = 'Ice Cream';
 const fetchURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}&limit=20&offset=0&rating=g&lang=en`;
 
 function App() {
+  const responseGoogle = (response) => {
+    console.log(response);
+  };
+
+  const responseErrorGoogle = (response) => {
+    
+  }
   const [apiData, setApiData] = React.useState([]);
   React.useEffect(() => {
     (async () => {
@@ -28,6 +36,16 @@ function App() {
       </div>
       <div>
         <SignupPage />
+      </div>
+      <div>
+      <GoogleLogin
+        clientId="171760147395-f8qjda0lvn765bo9rsbifb6gp5q0hvu9.apps.googleusercontent.com"
+         buttonText="Login with Google"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={'single_host_origin'}
+      />,
+      
       </div>
     </div>
   );
