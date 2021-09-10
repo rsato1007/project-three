@@ -2,6 +2,7 @@ import { urlencoded } from 'body-parser';
 import React from 'react';
 import SignupPage from './pages/SignUpPage';
 import { GoogleLogin } from 'react-google-login';
+import axios from 'axios';
 
 /* This file is used to test the API before we try to incorporate it into our code */
 const apiKey = "VR5MXJ8fw0BYcpei2IQf0AUzzmtXirfd";
@@ -12,11 +13,14 @@ const fetchURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${sea
 function App() {
   const responseGoogle = (response) => {
     console.log(response);
+    axios({
+      method: "POST",
+      url: "http://localhost:5000/api/googlelogin",
+      data: {tokenId: response.tokenId}
+    })
   };
 
-  const responseErrorGoogle = (response) => {
-    
-  }
+  
   const [apiData, setApiData] = React.useState([]);
   React.useEffect(() => {
     (async () => {
