@@ -11,7 +11,11 @@ const SignupForm = () => {
     const [Password, setPassword] = useState("");
 
     // Functions
-    const handleSubmit = async () => {
+    const handleSubmit = async (event) => {
+        /* Bug Notes: It appears the data isn't being sent to the backend properly */
+        event.preventDefault();
+
+        // Let's ensure the email is valid format before sending the data to the backend.
         let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (Email.match(regexEmail)) {
             const newUser = { Name, Email, Password };
@@ -20,7 +24,7 @@ const SignupForm = () => {
             const res = await UserActions.make(newUser);
     
             /* our data isn't being processed correctly because of something down the pipeline. */
-            console.log("This is the response data:", res.data);
+            console.log("This is the response:", res);
     
             // Extract Token
             if (res.data.data) {
@@ -28,7 +32,7 @@ const SignupForm = () => {
                 if (res.data.data.token) {
                 }
             } else {
-                alert("Server Error");
+                return console.log("Server Error");
             }; 
         } else {
           return alert("Invalid Email"); 
@@ -37,7 +41,7 @@ const SignupForm = () => {
 
     // Page Render
     return (
-        <form className="signup-inputs" onSubmit={handleSubmit}>
+        <form className="signup-inputs" onSubmit={(e) => handleSubmit(e)}>
             <input 
                 onChange={(e) => setEmail(e.target.value)}
                 value={Email}
@@ -59,7 +63,7 @@ const SignupForm = () => {
                 name="Password"
                 placeholder="PASSWORD"
             />
-            <button type={handleSubmit}>Create Account</button>
+            <button type="submit">Create Account</button>
         </form>
     )
 }
