@@ -12,27 +12,32 @@ const SignupForm = () => {
 
     // Functions
     const handleSubmit = async () => {
-        const newUser = { Name, Email, Password };
+        let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (Email.match(regexEmail)) {
+            const newUser = { Name, Email, Password };
         
-        // Make Backend Call to Create User
-        const res = await UserActions.make(newUser);
-
-        /* our data isn't being processed correctly because of something down the pipeline. */
-        console.log("This is the response data:", res.data);
-
-        // Extract Token
-        if (res.data.data) {
-            console.log("Good news everybody!");
-            if (res.data.data.token) {
-            }
+            // Make Backend Call to Create User
+            const res = await UserActions.make(newUser);
+    
+            /* our data isn't being processed correctly because of something down the pipeline. */
+            console.log("This is the response data:", res.data);
+    
+            // Extract Token
+            if (res.data.data) {
+                console.log("Good news everybody!");
+                if (res.data.data.token) {
+                }
+            } else {
+                alert("Server Error");
+            }; 
         } else {
-            alert("Server Error");
+          return alert("Invalid Email"); 
         }
     }
 
     // Page Render
     return (
-        <form className="signup-inputs" onClick={handleSubmit}>
+        <form className="signup-inputs" onSubmit={handleSubmit}>
             <input 
                 onChange={(e) => setEmail(e.target.value)}
                 value={Email}
