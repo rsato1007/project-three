@@ -23,7 +23,7 @@ app.use(express.json());
 app.use((req, res, next) => {
     console.log(req.url);
     // is there an auth header
-    console.log("AUTH HEADER: ", req.headers.authorization);
+    // console.log("AUTH HEADER: ", req.headers.authorization);
     if (req.body) {
         console.log("BODY BEING SENT: ", req.body);
     }
@@ -34,7 +34,7 @@ app.use((req, res, next) => {
 app.use("/api", routes);
 /* React.JS Connection */
 app.use((req, res, next) => {
-    console.log(req.headers);
+    // console.log(req.headers);
     res.sendFile(path.join(__dirname, "..", "build", "index.html"));
 });
 
