@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Username_Password, Email, Submit  } from "../../components";
+// import { Username_Password, Email, Submit  } from "../../components";
 //forms for login page
 const LoginPage = () => {
     //allows form to set username and password
@@ -18,8 +18,9 @@ const LoginPage = () => {
     //what actually gets rendered on the page
     return (
         <div className="login-form">
-            <Username_Password setName={setName} setPassword={setPassword} />
-            <Submit onClick={handleSubmit} buttonText="test" />
+            <div>Testing LoginPage</div>
         </div>
     )
 }
+
+export default LoginPage;
