@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as UserActions from "../../api/UserActions";
-import { setToken } from "../../Tools/TokenAction";
+
+/* setToken is there yet */
+// import { setToken } from "../../Tools/TokenAction";
 
 const SignupForm = () => {
     // State Variables
@@ -12,7 +14,6 @@ const SignupForm = () => {
 
     // Functions
     const handleSubmit = async (event) => {
-        /* Bug Notes: It appears the data isn't being sent to the backend properly */
         event.preventDefault();
 
         // Let's ensure the email is valid format before sending the data to the backend.
@@ -23,16 +24,19 @@ const SignupForm = () => {
             // Make Backend Call to Create User
             const res = await UserActions.make(newUser);
     
-            /* our data isn't being processed correctly because of something down the pipeline. */
-            console.log("This is the response:", res);
-    
             // Extract Token
             if (res.data.data) {
-                console.log("Good news everybody!");
                 if (res.data.data.token) {
+                    const token = res.data.data.token;
+                    console.log(token);
+                    // setToken(token);
+                    setName("");
+                    setEmail("");
+                    setPassword("");
+                    history.push('/login');
                 }
             } else {
-                return console.log("Server Error");
+                return alert("Server Error");
             }; 
         } else {
           return alert("Invalid Email"); 

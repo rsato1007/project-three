@@ -8,13 +8,12 @@ class Nav extends React.Component {
         return (
             <div>
                 <div className="commons-nav">
-                    {/* Using as base example */}
                     <Link to="/">
+                        {/* This will need to be changed */}
                         Home
                     </Link>
                 </div>
                 <Switch>
-                    {/* Using as base example */}
                     <Route
                         exact
                         path="/"
@@ -22,7 +21,6 @@ class Nav extends React.Component {
                     />
                 </Switch>
                 <Switch>
-                    {/* Using as base example */}
                     <Route
                         exact
                         path="/login"
