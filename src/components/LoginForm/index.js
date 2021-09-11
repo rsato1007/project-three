@@ -17,7 +17,11 @@ const LoginForm = () => {
         //fill with relevant code when hooked to back-end user api.
         const res = await UserActions.login(user);
 
-        console.log(res);
+        console.log("This is the response I got:", res.data.correct);
+
+        if (res.data.correct === false) {
+            alert("Login Failed, Try Again");
+        }
     };
 
     return (
