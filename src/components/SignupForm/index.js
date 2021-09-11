@@ -12,21 +12,27 @@ const SignupForm = () => {
 
     // Functions
     const handleSubmit = async () => {
-        let newUser = { Name, Email, Password };
-        console.log(history);
-        // Redirects to the specified URL
-        history.push("/api/corgi");
+        const newUser = { Name, Email, Password };
         
         // Make Backend Call to Create User
         const res = await UserActions.make(newUser);
-        console.log(res);
+
+        /* our data isn't being processed correctly because of something down the pipeline. */
+        console.log("This is the response data:", res.data);
 
         // Extract Token
+        if (res.data.data) {
+            console.log("Good news everybody!");
+            if (res.data.data.token) {
+            }
+        } else {
+            alert("Server Error");
+        }
     }
 
     // Page Render
     return (
-        <div className="signup-inputs">
+        <form className="signup-inputs" onClick={handleSubmit}>
             <input 
                 onChange={(e) => setEmail(e.target.value)}
                 value={Email}
@@ -48,8 +54,8 @@ const SignupForm = () => {
                 name="Password"
                 placeholder="PASSWORD"
             />
-            <button onClick={handleSubmit}>Create Account</button>
-        </div>
+            <button type={handleSubmit}>Create Account</button>
+        </form>
     )
 }
 
