@@ -16,12 +16,10 @@ import CommonsCommands from "../api/CommonsCommands";
 const getToken = () => {
     let token = localStorage.getItem("token");
     CommonsCommands.defaults.headers.common["Authorization"] = "Bearer " + token;
-    console.log("We got the token!", token);
 
     //checks for token expiration, deletes if expired
     if (token) {
         const payload = JSON.parse(atob(token.split(".")[1]));
-        console.log("Plain ol token! ", payload);
         //convert seconds to miliseconds
         if (payload.exp < Date.now() / 1000) {
             localStorage.removeItem("token");
