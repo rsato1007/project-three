@@ -3,31 +3,33 @@ import * as UserActions from "../../api/UserActions";
 
 const LoginForm = () => {
     //allows form to set username and password
-    const [Name, setName] = useState("");
+    const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        /* We could also add the regex here to determine if the user typed a valid email address or not */
 
+        /* We'll use email since usernames might be duplicate */
         const user = {
-            Name,
+            Email,
             Password,
         };
 
         //fill with relevant code when hooked to back-end user api.
         const res = await UserActions.login(user);
 
-        console.log(res);
+        
     };
 
     return (
         <form className="login-inputs" onSubmit={(e) => handleSubmit(e)}>
-                        <input 
-                onChange={(e) => setName(e.target.value)}
-                value={Name}
+            <input 
+                onChange={(e) => setEmail(e.target.value)}
+                value={Email}
                 type="text"
-                name="Name"
-                placeholder="USERNAME"
+                name="Email"
+                placeholder="EMAIL"
             />
             <input 
                 onChange={(e) => setPassword(e.target.value)}

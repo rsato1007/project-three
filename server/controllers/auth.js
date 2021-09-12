@@ -2,25 +2,27 @@ const db = require('../models');
 const bcrpyt = require('bcrypt');
 const createJWT = require("./helpers");
 
-const login = async (req,res) => {
-  console.log('login controller');
-  const { email, password } = req.body;
+const login = async (req, res) => {
+  console.log(req.body);
 
   //look for user via email
+  let foundUser = await db.User.find({ 'Email': req.body.Email });
+  console.log(foundUser);
 
-  let foundUser = await db.User.findOne({ email });
+  // If we dont find anyone, send 404.
 
-  //if we dont find anyone, send 404.
+  /* We'll comment out the code below until we get a good
+  solution going */
 
-  if(!foundUser) {
+  if(foundUser.length === 0) {
     console.log('no user');
     return res.send({
       message: "Login Error, Please Try Again",
     });
   } else {
-    console.log("user");
     //does password match?
-    bcrpyt.compare(password, foundUser.password, function (err,result) {
+    bcrpyt.compare(req.body.Password, foundUser[0].Password, function (err,result) {
+      console.log("This is the results:", result);
       if (err) {
         return res.send({
           message: "Login Error, Please Try Again",
@@ -28,6 +30,7 @@ const login = async (req,res) => {
         });
       } else {
         if (result) {
+          console.log("Congrats password was correct");
           const token = createJWT(foundUser);
           return res.send({
             message: "Success", 
