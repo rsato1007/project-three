@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import * as UserActions from "../../api/UserActions";
+// import { setToken } from "../../Tools/TokenAction";
 
 const LoginForm = () => {
+    const history = useHistory();
     //allows form to set username and password
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
@@ -19,7 +22,16 @@ const LoginForm = () => {
         //fill with relevant code when hooked to back-end user api.
         const res = await UserActions.login(user);
 
-        
+        if (res.data.correct) {
+            console.log(res);
+            const token = res.data.data.token;
+            // setToken(token);
+            setEmail("");
+            setPassword("");
+            history.push("/");
+        } else {
+            alert('Login Error, try again');
+        }
     };
 
     return (

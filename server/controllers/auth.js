@@ -18,6 +18,7 @@ const login = async (req, res) => {
     console.log('no user');
     return res.send({
       message: "Login Error, Please Try Again",
+      correct: false,
     });
   } else {
     //does password match?
@@ -26,6 +27,7 @@ const login = async (req, res) => {
       if (err) {
         return res.send({
           message: "Login Error, Please Try Again",
+          correct: false,
           data: err,
         });
       } else {
@@ -34,12 +36,14 @@ const login = async (req, res) => {
           const token = createJWT(foundUser);
           return res.send({
             message: "Success", 
+            correct: true,
             data: { token },
           });
         } else {
           console.log("Bad Pass");
           return res.send({
             message: "Login Error, please try again",
+            correct: false,
           });
         }
       }
