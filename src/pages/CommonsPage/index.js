@@ -1,19 +1,23 @@
 import React, {useEffect, useState} from "react";
 import { getUserFromToken } from "../../Tools/TokenAction";
-
-/* Testing how to get information from token to find user's information */
-
+import Post from "../../components/Post";
 
 const CommonsPage = () => {
     const [Name, setName] = useState("");
+
+    /* Todo: Write a function that gathers all the information from friend posts */
 
     useEffect(() => {
         const tokenInfo = getUserFromToken();
         setName(tokenInfo[0].Name);
     },[]);
     return (
-        <div>
-            Welcome Back {Name}!
+        <div className="commons-page">
+        {/* Search for a friend component */}
+            <div>
+                Welcome Back {Name}!
+            </div>
+            <Post />
         </div>
     )
 }
