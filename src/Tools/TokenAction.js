@@ -1,7 +1,6 @@
 import CommonsCommands from "../api/CommonsCommands";
 
  const createToken = (token) => {
-    console.log("I made a token! ", token);
 
     //puts token into local storage and adds auth header
     if (token) {

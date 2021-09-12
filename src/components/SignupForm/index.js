@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as UserActions from "../../api/UserActions";
+import { createToken } from "../../Tools/TokenAction";
 
 /* setToken is there yet */
 // import { setToken } from "../../Tools/TokenAction";
@@ -28,8 +29,7 @@ const SignupForm = () => {
             if (res.data.data) {
                 if (res.data.data.token) {
                     const token = res.data.data.token;
-                    console.log(token);
-                    // setToken(token);
+                    createToken(token);
                     setName("");
                     setEmail("");
                     setPassword("");
