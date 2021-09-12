@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import * as UserActions from "../../api/UserActions";
 import { createToken } from "../../Tools/TokenAction";
 
@@ -45,30 +45,35 @@ const SignupForm = () => {
 
     // Page Render
     return (
-        <form className="signup-inputs" onSubmit={(e) => handleSubmit(e)}>
-            <input 
-                onChange={(e) => setEmail(e.target.value)}
-                value={Email}
-                type="email"
-                name="Email"
-                placeholder="EMAIL"
-            />
-            <input 
-                onChange={(e) => setName(e.target.value)}
-                value={Name}
-                type="text"
-                name="Name"
-                placeholder="USERNAME"
-            />
-            <input 
-                onChange={(e) => setPassword(e.target.value)}
-                value={Password}
-                type="password"
-                name="Password"
-                placeholder="PASSWORD"
-            />
-            <button type="submit">Create Account</button>
-        </form>
+        <div className="signup-form">
+            <form className="signup-inputs" onSubmit={(e) => handleSubmit(e)}>
+                <input 
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={Email}
+                    type="email"
+                    name="Email"
+                    placeholder="EMAIL"
+                />
+                <input 
+                    onChange={(e) => setName(e.target.value)}
+                    value={Name}
+                    type="text"
+                    name="Name"
+                    placeholder="USERNAME"
+                />
+                <input 
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={Password}
+                    type="password"
+                    name="Password"
+                    placeholder="PASSWORD"
+                />
+                <button type="submit">Create Account</button>
+            </form>
+            <Link to="/login">
+                Already Signed Up? Login
+            </Link>
+        </div>
     )
 }
 
