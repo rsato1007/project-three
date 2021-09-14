@@ -15,7 +15,12 @@ const PostForm = (props) => {
 
         //fill with relevant code when hooked to back-end user api.
         const res = await UserActions.sendPost(post);
-        console.log("Here's the response I get:", res);
+        if (res.data.data) {
+            setPostBody("");
+            // Maybe add functiont that grabs posts again?
+        } else {
+            alert("Post Error. Try Again.")
+        }
     }
     
     return (
