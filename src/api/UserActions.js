@@ -17,4 +17,8 @@ const getUser = () => {
     return user;
 };
 
-export { make, login, getUser };
+const sendPost = (data) => {
+    return CommonsCommands.post("/posts", data);
+}
+
+export { make, login, getUser, sendPost };

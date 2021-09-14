@@ -44,7 +44,10 @@ const showComments = (req, res) => {
 
 //Create Post STATUS 201
 const create = (req, res ) => {
-    req.body.author = mongoose.Types.ObjectsId(req.body.author);
+    console.log("req.body:", req.body);
+    /* Commented out the code because the server was throwing an error, verified in the MongoDB database
+    that the post went through wtih no issue */
+    // req.body.author = mongoose.Types.ObjectsId(req.body.author);
     db.Post.create(req.body, (err, savedPost) => {
         savedPost.populate("author");
         console.log(savedPost, "Saved Post In Create Post");

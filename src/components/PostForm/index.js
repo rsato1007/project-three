@@ -1,17 +1,21 @@
 import React, {useState} from "react";
+import * as UserActions from "../../api/UserActions";
 
 const PostForm = (props) => {
     const [postBody, setPostBody] = useState('');
 
     const submitPost = async (event) => {
         event.preventDefault();
-        console.log("My Props thing", props.Token);
+
         const post = {
             body: postBody,
             author: props.Token._id,
             date: new Date(),
         }
-        console.log("Post Submitted", post);
+
+        //fill with relevant code when hooked to back-end user api.
+        const res = await UserActions.sendPost(post);
+        console.log("Here's the response I get:", res);
     }
     
     return (
