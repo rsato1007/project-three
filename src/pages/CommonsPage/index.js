@@ -4,7 +4,7 @@ import Post from "../../components/Post";
 import PostForm from "../../components/PostForm";
 
 const CommonsPage = () => {
-    const [Name, setName] = useState("");
+    const [Token, setToken] = useState(getUserFromToken);
     const [Posts, setPosts] = useState([]);
 
     const getPosts = async () => {
@@ -14,8 +14,7 @@ const CommonsPage = () => {
     /* Todo: Write a function that gathers all the information from friend posts */
 
     useEffect(() => {
-        const tokenInfo = getUserFromToken();
-        setName(tokenInfo.Name);
+        console.log("Here's the user's info:", Token);
         /* This is emulating a simplied version of actual friends posts before we implement data. */
         setPosts([...Posts, 
             {Body: "I went to the beach this weekend.", Author: "tacoDog", Date: "09/11/2021"},
@@ -26,9 +25,9 @@ const CommonsPage = () => {
         <div className="commons-page">
         {/* Search for a friend component */}
             <div>
-                Welcome Back {Name}!
+                Welcome Back {Token.Name}!
             </div>
-            <PostForm />
+            <PostForm Token={Token}/>
             {Posts.map((post) => {
                 return (
                     <Post Body={post.Body} Author={post.Author} Date={post.Date}/>
