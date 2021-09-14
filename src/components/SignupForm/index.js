@@ -16,6 +16,7 @@ const SignupForm = () => {
     // Functions
     const handleSubmit = async (event) => {
         event.preventDefault();
+        /* There seems to be a bug, when signing up the server crashes because there's token being sent */
 
         // Let's ensure the email is valid format before sending the data to the backend.
         let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -33,7 +34,7 @@ const SignupForm = () => {
                     setName("");
                     setEmail("");
                     setPassword("");
-                    history.push('/login');
+                    history.push('/commons');
                 }
             } else {
                 return alert("Server Error");

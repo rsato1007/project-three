@@ -10,7 +10,7 @@ const CommonsPage = () => {
 
     useEffect(() => {
         const tokenInfo = getUserFromToken();
-        setName(tokenInfo[0].Name);
+        setName(tokenInfo.Name);
         /* This is emulating a simplied version of actual friends posts before we implement data. */
         setPosts([
             {Body: "I went to the beach this weekend.", Author: "tacoDog", Date: "09/11/2021"},

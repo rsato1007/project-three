@@ -27,7 +27,7 @@ const LoginForm = () => {
             createToken(token);
             setEmail("");
             setPassword("");
-            history.push("/login");
+            history.push("/commons");
         } else {
             alert('Login Error, try again');
         }
