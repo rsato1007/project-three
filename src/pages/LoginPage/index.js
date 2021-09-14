@@ -1,25 +1,14 @@
 import React, { useState } from "react";
-import { Username_Password, Email, Submit  } from "../../components";
+import LoginForm from "../../components/LoginForm";
+// import { Username_Password, Email, Submit  } from "../../components";
 //forms for login page
-const LoginPage = () => {
-    //allows form to set username and password
-    const [Name, setName] = useState("");
-    const [Password, setPassword] = useState("");
-
-    const handleSubmit = async () => {
-        const user = {
-            Name,
-            Password,
-        };
-        console.log(user);
-        //fill with relevant code when hooked to back-end user api.
-    };
-    
+const LoginPage = () => {    
     //what actually gets rendered on the page
     return (
-        <div className="login-form">
-            <Username_Password setName={setName} setPassword={setPassword} />
-            <Submit onClick={handleSubmit} buttonText="test" />
+        <div className="login-page">
+            <LoginForm />
         </div>
     )
 }
+
+export default LoginPage;

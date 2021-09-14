@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Nav from './components/Nav';
 import { BrowserRouter as Router } from "react-router-dom";
@@ -8,8 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      {/* <Nav /> */}
-      <App />
+      <Nav />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

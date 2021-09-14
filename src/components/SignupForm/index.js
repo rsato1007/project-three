@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as UserActions from "../../api/UserActions";
-import { setToken } from "../../Tools/TokenAction";
+
+/* setToken is there yet */
+// import { setToken } from "../../Tools/TokenAction";
 
 const SignupForm = () => {
     // State Variables
@@ -11,22 +13,39 @@ const SignupForm = () => {
     const [Password, setPassword] = useState("");
 
     // Functions
-    const handleSubmit = async () => {
-        let newUser = { Name, Email, Password };
-        console.log(history);
-        // Redirects to the specified URL
-        history.push("/api/corgi");
-        
-        // Make Backend Call to Create User
-        const res = await UserActions.make(newUser);
-        console.log(res);
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
-        // Extract Token
+        // Let's ensure the email is valid format before sending the data to the backend.
+        let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (Email.match(regexEmail)) {
+            const newUser = { Name, Email, Password };
+        
+            // Make Backend Call to Create User
+            const res = await UserActions.make(newUser);
+    
+            // Extract Token
+            if (res.data.data) {
+                if (res.data.data.token) {
+                    const token = res.data.data.token;
+                    console.log(token);
+                    // setToken(token);
+                    setName("");
+                    setEmail("");
+                    setPassword("");
+                    history.push('/login');
+                }
+            } else {
+                return alert("Server Error");
+            }; 
+        } else {
+          return alert("Invalid Email"); 
+        }
     }
 
     // Page Render
     return (
-        <div className="signup-inputs">
+        <form className="signup-inputs" onSubmit={(e) => handleSubmit(e)}>
             <input 
                 onChange={(e) => setEmail(e.target.value)}
                 value={Email}
@@ -48,8 +67,8 @@ const SignupForm = () => {
                 name="Password"
                 placeholder="PASSWORD"
             />
-            <button onClick={handleSubmit}>Create Account</button>
-        </div>
+            <button type="submit">Create Account</button>
+        </form>
     )
 }
 
