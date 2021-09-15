@@ -17,7 +17,7 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
         //submit is visible
         if (isEditing) {
             let editedPost = {
-                author: editedAuthor,
+                author: Token._id,
                 body: editedBody,
             };
             await PostActions.edit(id, editedPost);
@@ -39,17 +39,21 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
 
     useEffect(() => {
         fetchComments(id);
-        console.log("Ladies and Gentleman, now presenting: Token", Token);
-        console.log("With special guest, author:", Author);
     }, []);
 
     return (
         <div className="common-post">
-            <div>{Body}</div>
-            <div>{Author.Name}</div>
-            <div>{Date}</div>
+            {isEditing
+             ? (<div>testing</div>)
+             : (<div className="post-wrapper">
+                    <div>{Body}</div>
+                    <div>{Author.Name}</div>
+                    <div>{Date}</div>
+                </div>)
+            }
+
             {Author._id === Token._id
-             ? (<button>Edit Post</button>)
+             ? (<button onClick={() => setIsEditing(true)}>Edit Post</button>)
              : (<div>NO EDIT FOR YOU</div>)
             }
         </div>
