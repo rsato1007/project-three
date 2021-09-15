@@ -5,7 +5,7 @@ import React, {useState, useEffect} from "react";
 import * as PostActions from "../../api/PostActions";
 //comments again
 
-const Post = ({ id, getPosts, Body, Author, Date, comments }) => {
+const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [editedAuthor, setAuthor] = useState(Author);
     const [editedBody, setBody] = useState(Body);
@@ -39,13 +39,19 @@ const Post = ({ id, getPosts, Body, Author, Date, comments }) => {
 
     useEffect(() => {
         fetchComments(id);
+        console.log("Ladies and Gentleman, now presenting: Token", Token);
+        console.log("With special guest, author:", Author);
     }, []);
 
     return (
         <div className="common-post">
             <div>{Body}</div>
-            <div>{Author}</div>
+            <div>{Author.Name}</div>
             <div>{Date}</div>
+            {Author._id === Token._id
+             ? (<button>Edit Post</button>)
+             : (<div>NO EDIT FOR YOU</div>)
+            }
         </div>
     )
 }
