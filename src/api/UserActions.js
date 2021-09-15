@@ -17,14 +17,4 @@ const getUser = () => {
     return user;
 };
 
-/* Seperate Users from Posts for better organization */
-
-const sendPost = (data) => {
-    return CommonsCommands.post("/posts", data);
-}
-
-const getPosts = () => {
-    return CommonsCommands.get("/posts");
-}
-
-export { make, login, getUser, sendPost, getPosts };
+export { make, login, getUser };
