@@ -33,7 +33,7 @@ const CommonsPage = () => {
             <PostForm Token={Token} getPosts={(e) => getPosts(e)}/>
             {Posts.map((post) => {
                 return (
-                    <Post Body={post.body} Author={post.author} Date={post.date} Token={Token}/>
+                    <Post Body={post.body} Author={post.author} Date={post.date} Token={Token} id={post._id}/>
                 )
             })}
         </div>

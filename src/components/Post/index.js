@@ -11,16 +11,19 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
     const [editedBody, setBody] = useState(Body);
     const [postComments, setComments] = useState([]);
     //function for editing post
-    const handleEdit = async () => {
+    const handleEdit = async (event) => {
+        event.preventDefault();
         console.log("many edits, Handle it!");
         setIsEditing(!isEditing);
-        //submit is visible
+        // submit is visible
         if (isEditing) {
             let editedPost = {
                 author: Token._id,
                 body: editedBody,
             };
-            await PostActions.edit(id, editedPost);
+            console.log("here's the edited post", editedPost);
+            console.log("here's the id", id);
+            // await PostActions.edit(id, editedPost);
             //add function to reload posts
         }
     };
@@ -44,17 +47,26 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
     return (
         <div className="common-post">
             {isEditing
-             ? (<div>testing</div>)
+             ? (<form className="editPostForm-wrapper" onSubmit={(e) => handleEdit(e)}>
+                    <input 
+                        onChange={(e) => setBody(e.target.value)}
+                        value={editedBody}
+                        type="text"
+                        name="body"
+                        placeholder="Edit Post"
+                    />
+                    <button type="submit">Edit Post</button>
+                </form>)
+            //  This appears when user is not editing post
              : (<div className="post-wrapper">
                     <div>{Body}</div>
                     <div>{Author.Name}</div>
                     <div>{Date}</div>
                 </div>)
             }
-
-            {Author._id === Token._id
-             ? (<button onClick={() => setIsEditing(true)}>Edit Post</button>)
-             : (<div>NO EDIT FOR YOU</div>)
+            {/* Get rid of edit button if logged in user is editing post */}
+            {Author._id === Token._id && !isEditing &&
+             <button onClick={() => setIsEditing(true)}>Edit Post</button>
             }
         </div>
     )
