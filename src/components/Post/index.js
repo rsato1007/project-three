@@ -7,7 +7,6 @@ import * as PostActions from "../../api/PostActions";
 
 const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
     const [isEditing, setIsEditing] = useState(false);
-    const [editedAuthor, setAuthor] = useState(Author);
     const [editedBody, setBody] = useState(Body);
     const [postComments, setComments] = useState([]);
     //function for editing post
@@ -21,16 +20,15 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
                 author: Token._id,
                 body: editedBody,
             };
-            console.log("here's the edited post", editedPost);
-            console.log("here's the id", id);
             await PostActions.edit(id, editedPost);
-            //add function to reload posts
+            getPosts();
         }
     };
     //function for deleting post
     const handleDelete = async () => {
         await PostActions.remove(id);
         //reload posts
+        getPosts();
     };
     //function for showing comments
     const fetchComments = async (id) => {
@@ -66,7 +64,10 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
             }
             {/* Get rid of edit button if logged in user is editing post */}
             {Author._id === Token._id && !isEditing &&
-             <button onClick={() => setIsEditing(true)}>Edit Post</button>
+            <div className="edit-delete-wrapper">
+                <button onClick={() => setIsEditing(true)}>Edit Post</button>
+                <button onClick={() => handleDelete()}>Delete Post</button>
+             </div>
             }
         </div>
     )

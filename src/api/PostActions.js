@@ -33,8 +33,8 @@ const editComment = () => {
     return CommonsCommands.put(/*POST ID IN HERE*/);
 };
 //deletes post
-const remove = () => {
-    return CommonsCommands.delete(/*POST ID IN HERE*/);
+const remove = (id) => {
+    return CommonsCommands.delete(`/posts/${id}`);
 };
 //deletes comment
 const removeComment = () => {
