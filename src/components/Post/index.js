@@ -23,7 +23,7 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
             };
             console.log("here's the edited post", editedPost);
             console.log("here's the id", id);
-            // await PostActions.edit(id, editedPost);
+            await PostActions.edit(id, editedPost);
             //add function to reload posts
         }
     };

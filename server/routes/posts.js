@@ -10,7 +10,7 @@ router.use(require("../config/auth"));
 router.post("/", posts.create);
 router.post("/:id/comments/:commentId", posts.createComment);
 router.post("/:id/comment/:commentid", posts.updateComment);
-router.post("/:id", posts.update);
+router.put("/:id", posts.update);
 router.delete("/:id", posts.destroy);
 router.delete("/:id/comment/:commentId", posts.destroyComment);
 
