@@ -13,16 +13,14 @@ const PostForm = (props) => {
             date: new Date(),
         }
 
-        console.log("Here's what being sent to the backend:", post);
+        const res = await PostActions.create(post);
 
-        // const res = await PostActions.create(post);
-        // console.log("Post created, here's the response:", res);
-        // if (res.data.data) {
-        //     setPostBody("");
-        //     // Maybe add functiont that grabs posts again?
-        // } else {
-        //     alert("Post Error. Try Again.")
-        // }
+        if (res.data.data) {
+            setPostBody("");
+            // Maybe add functiont that grabs posts again?
+        } else {
+            alert("Post Error. Try Again.")
+        }
     }
     
     return (
