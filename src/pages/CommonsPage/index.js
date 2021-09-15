@@ -21,15 +21,16 @@ const CommonsPage = () => {
 
     useEffect(() => {
         /* This is emulating a simplied version of actual friends posts before we implement data. */
+        setToken(Token._id ? Token : Token[0]);
         getPosts();
     },[]);
     return (
         <div className="commons-page">
         {/* Search for a friend component */}
             <div>
-                Welcome Back {Token.Name ? Token.Name : Token[0].Name}!
+                Welcome Back {Token.Name}!
             </div>
-            <PostForm Token={Token._id ? Token : Token[0]} getPosts={(e) => getPosts(e)}/>
+            <PostForm Token={Token} getPosts={(e) => getPosts(e)}/>
             {Posts.map((post) => {
                 return (
                     <Post Body={post.body} Author={post.author.Name} Date={post.date}/>
