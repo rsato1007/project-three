@@ -64,7 +64,10 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
             }
             {/* Get rid of edit button if logged in user is editing post */}
             {Author._id === Token._id && !isEditing &&
-             <button onClick={() => setIsEditing(true)}>Edit Post</button>
+            <div className="edit-delete-wrapper">
+                <button onClick={() => setIsEditing(true)}>Edit Post</button>
+                <button onClick={() => handleDelete()}>Delete Post</button>
+             </div>
             }
         </div>
     )
