@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import * as UserActions from "../../api/UserActions";
 import { createToken } from "../../Tools/TokenAction";
+import { GoogleLogin } from 'react-google-login';
+import axios from 'axios';
+
 
 /* setToken is there yet */
 // import { setToken } from "../../Tools/TokenAction";
@@ -14,6 +17,15 @@ const SignupForm = () => {
     const [Password, setPassword] = useState("");
 
     // Functions
+    const responseGoogle = (response) => {
+        console.log(response);
+        axios({
+          method: "POST",
+          url: "http://localhost:5000/api/googlelogin",
+          data: {tokenId: response.tokenId}
+        })
+      };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         /* There seems to be a bug, when signing up the server crashes because there's token being sent */
@@ -70,6 +82,15 @@ const SignupForm = () => {
                     placeholder="PASSWORD"
                 />
                 <button type="submit">Create Account</button>
+                <div>
+                <GoogleLogin
+                    clientId="171760147395-f8qjda0lvn765bo9rsbifb6gp5q0hvu9.apps.googleusercontent.com"
+                    buttonText="Login with Google"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                />
+                </div>
             </form>
             <Link to="/login">
                 Already Signed Up? Login
