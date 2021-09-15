@@ -27,7 +27,7 @@ const CommonsPage = () => {
         <div className="commons-page">
         {/* Search for a friend component */}
             <div>
-                Welcome Back {Token.Name}!
+                Welcome Back {Token.Name ? Token.Name : Token[0].Name}!
             </div>
             <PostForm Token={Token}/>
             {Posts.map((post) => {
