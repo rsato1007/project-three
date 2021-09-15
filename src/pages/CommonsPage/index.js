@@ -11,6 +11,7 @@ const CommonsPage = () => {
     const getPosts = async () => {
         // Eventually we'll change to grab only posts from friends.
         const res = await PostActions.getAll();
+        console.log("Here's the post response:", res);
     }
 
     /* Todo: Write a function that gathers all the information from friend posts */
@@ -29,7 +30,7 @@ const CommonsPage = () => {
             <div>
                 Welcome Back {Token.Name ? Token.Name : Token[0].Name}!
             </div>
-            <PostForm Token={Token}/>
+            <PostForm Token={Token._id ? Token : Token[0]}/>
             {Posts.map((post) => {
                 return (
                     <Post Body={post.Body} Author={post.Author} Date={post.Date}/>

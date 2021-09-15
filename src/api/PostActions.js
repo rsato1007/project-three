@@ -18,7 +18,7 @@ const getAllComments = () => {
 };
 // make a post
 const create = () => {
-    return CommonsCommands.post(/*POST ID IN HERE*/);
+    return CommonsCommands.post("/posts");
 };
 // make comments
 const createComment = () => {
