@@ -56,7 +56,7 @@ const Comment = ({ id, author, body, getCommentsAgain, commentId}) => {
     );
 };
 
-Comment.propTypes = {
+Comment.prototypes = {
     id: string.isRequired,
     author: string.isRequired,
     body: string.isRequired,
