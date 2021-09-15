@@ -8,10 +8,13 @@ const CommonsPage = () => {
     const [Token, setToken] = useState(getUserFromToken());
     const [Posts, setPosts] = useState([]);
 
-    const getPosts = async () => {
+    const getPosts = async (event) => {
+        if (event) {
+            event.preventDefault();
+        }
         // Eventually we'll change to grab only posts from friends.
         const res = await PostActions.getAll();
-        console.log("Here's the post response:", res);
+        setPosts(res.data.data);
     }
 
     /* Todo: Write a function that gathers all the information from friend posts */
@@ -19,10 +22,6 @@ const CommonsPage = () => {
     useEffect(() => {
         /* This is emulating a simplied version of actual friends posts before we implement data. */
         getPosts();
-        setPosts([...Posts, 
-            {Body: "I went to the beach this weekend.", Author: "tacoDog", Date: "09/11/2021"},
-            {Body: "Go Sports Team", Author: "Paper John", Date: "09/12/2021"}
-        ]);
     },[]);
     return (
         <div className="commons-page">
@@ -30,10 +29,10 @@ const CommonsPage = () => {
             <div>
                 Welcome Back {Token.Name ? Token.Name : Token[0].Name}!
             </div>
-            <PostForm Token={Token._id ? Token : Token[0]}/>
+            <PostForm Token={Token._id ? Token : Token[0]} getPosts={(e) => getPosts(e)}/>
             {Posts.map((post) => {
                 return (
-                    <Post Body={post.Body} Author={post.Author} Date={post.Date}/>
+                    <Post Body={post.body} Author={post.author.Name} Date={post.date}/>
                 )
             })}
         </div>

@@ -17,7 +17,7 @@ const PostForm = (props) => {
 
         if (res.data.data) {
             setPostBody("");
-            // Maybe add functiont that grabs posts again?
+            props.getPosts(event);
         } else {
             alert("Post Error. Try Again.")
         }
