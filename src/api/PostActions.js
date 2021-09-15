@@ -2,7 +2,7 @@ import CommonsCommands from "./CommonsCommands";
 
 //gets every post for main page
 const getAll = () => {
-    return CommonsCommands.get(/*POST ID IN HERE*/);
+    return CommonsCommands.get("/posts");
 };
 //will get posts from friends. somehow.
 const getFriends = () => {
