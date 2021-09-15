@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import * as PostActions from "../../api/PostActions";
 
 const PostForm = (props) => {
     const [postBody, setPostBody] = useState('');
@@ -12,14 +13,14 @@ const PostForm = (props) => {
             date: new Date(),
         }
 
-        //fill with relevant code when hooked to back-end user api.
-        // const res = await UserActions.sendPost(post);
-        // if (res.data.data) {
-        //     setPostBody("");
-        //     // Maybe add functiont that grabs posts again?
-        // } else {
-        //     alert("Post Error. Try Again.")
-        // }
+        const res = await PostActions.create(post);
+
+        if (res.data.data) {
+            setPostBody("");
+            props.getPosts(event);
+        } else {
+            alert("Post Error. Try Again.")
+        }
     }
     
     return (

@@ -5,10 +5,10 @@ import React, {useState, useEffect} from "react";
 import * as PostActions from "../../api/PostActions";
 //comments again
 
-const Post = ({ id, getPosts, body, author, comments }) => {
+const Post = ({ id, getPosts, Body, Author, Date, comments }) => {
     const [isEditing, setIsEditing] = useState(false);
-    const [editedAuthor, setAuthor] = useState(author);
-    const [editedBody, setBody] = useState(body);
+    const [editedAuthor, setAuthor] = useState(Author);
+    const [editedBody, setBody] = useState(Body);
     const [postComments, setComments] = useState([]);
     //function for editing post
     const handleEdit = async () => {
@@ -43,7 +43,9 @@ const Post = ({ id, getPosts, body, author, comments }) => {
 
     return (
         <div className="common-post">
-            
+            <div>{Body}</div>
+            <div>{Author}</div>
+            <div>{Date}</div>
         </div>
     )
 }
