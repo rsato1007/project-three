@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import * as UserActions from "../../api/UserActions";
-// import { setToken } from "../../Tools/TokenAction";
+import { createToken } from "../../Tools/TokenAction";
 
 const LoginForm = () => {
     const history = useHistory();
@@ -23,35 +23,39 @@ const LoginForm = () => {
         const res = await UserActions.login(user);
 
         if (res.data.correct) {
-            console.log(res);
             const token = res.data.data.token;
-            // setToken(token);
+            createToken(token);
             setEmail("");
             setPassword("");
-            history.push("/");
+            history.push("/commons");
         } else {
             alert('Login Error, try again');
         }
     };
 
     return (
-        <form className="login-inputs" onSubmit={(e) => handleSubmit(e)}>
-            <input 
-                onChange={(e) => setEmail(e.target.value)}
-                value={Email}
-                type="text"
-                name="Email"
-                placeholder="EMAIL"
-            />
-            <input 
-                onChange={(e) => setPassword(e.target.value)}
-                value={Password}
-                type="password"
-                name="Password"
-                placeholder="PASSWORD"
-            />
-            <button type="submit">Login</button>
-        </form>
+        <div className="login-form">
+            <form className="login-inputs" onSubmit={(e) => handleSubmit(e)}>
+                <input 
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={Email}
+                    type="text"
+                    name="Email"
+                    placeholder="EMAIL"
+                />
+                <input 
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={Password}
+                    type="password"
+                    name="Password"
+                    placeholder="PASSWORD"
+                />
+                <button type="submit">Login</button>
+            </form>
+            <Link to="/">
+                Sign Up
+            </Link>
+        </div>
     )
 };
 

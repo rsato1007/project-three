@@ -17,7 +17,7 @@ const postSchema = new Schema(
     {
         body: {type: String, require: true },
         author: {type: Schema.Types.ObjectId, ref: "User" },
-        date: {type: Date },
+        date: {type: Date},
         comments: [commentSchema],
     },
     {
