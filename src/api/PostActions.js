@@ -25,8 +25,8 @@ const createComment = () => {
     return CommonsCommands.get(/*POST ID IN HERE*/);
 };
 //Updates post to new info
-const edit = () => {
-    return CommonsCommands.put(/*POST ID IN HERE*/);
+const edit = (id, data) => {
+    return CommonsCommands.put(`/posts/${id}`, data);
 };
 //updates comments to new info
 const editComment = () => {
@@ -40,7 +40,6 @@ const remove = () => {
 const removeComment = () => {
     return CommonsCommands.delete(/*POST ID IN HERE*/);
 };
-
 
 //exports from the api
 export { get, getAll, getFriends, getAllComments, create, createComment, edit, editComment, remove, removeComment, };

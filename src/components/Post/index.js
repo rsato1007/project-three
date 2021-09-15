@@ -5,21 +5,24 @@ import React, {useState, useEffect} from "react";
 import * as PostActions from "../../api/PostActions";
 //comments again
 
-const Post = ({ id, getPosts, Body, Author, Date, comments }) => {
+const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [editedAuthor, setAuthor] = useState(Author);
     const [editedBody, setBody] = useState(Body);
     const [postComments, setComments] = useState([]);
     //function for editing post
-    const handleEdit = async () => {
+    const handleEdit = async (event) => {
+        event.preventDefault();
         console.log("many edits, Handle it!");
         setIsEditing(!isEditing);
-        //submit is visible
+        // submit is visible
         if (isEditing) {
             let editedPost = {
-                author: editedAuthor,
+                author: Token._id,
                 body: editedBody,
             };
+            console.log("here's the edited post", editedPost);
+            console.log("here's the id", id);
             await PostActions.edit(id, editedPost);
             //add function to reload posts
         }
@@ -43,9 +46,28 @@ const Post = ({ id, getPosts, Body, Author, Date, comments }) => {
 
     return (
         <div className="common-post">
-            <div>{Body}</div>
-            <div>{Author}</div>
-            <div>{Date}</div>
+            {isEditing
+             ? (<form className="editPostForm-wrapper" onSubmit={(e) => handleEdit(e)}>
+                    <input 
+                        onChange={(e) => setBody(e.target.value)}
+                        value={editedBody}
+                        type="text"
+                        name="body"
+                        placeholder="Edit Post"
+                    />
+                    <button type="submit">Edit Post</button>
+                </form>)
+            //  This appears when user is not editing post
+             : (<div className="post-wrapper">
+                    <div>{Body}</div>
+                    <div>{Author.Name}</div>
+                    <div>{Date}</div>
+                </div>)
+            }
+            {/* Get rid of edit button if logged in user is editing post */}
+            {Author._id === Token._id && !isEditing &&
+             <button onClick={() => setIsEditing(true)}>Edit Post</button>
+            }
         </div>
     )
 }

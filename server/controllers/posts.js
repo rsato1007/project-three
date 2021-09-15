@@ -79,6 +79,7 @@ const createComment = (req, res) => {
 
 // Update(Posts)- put - (id)
 const update = (req, res) => {
+    console.log("here's the request", req.body);
     db.Post.findByIdAndUpdate(
         req.params.id,
         req.body,
