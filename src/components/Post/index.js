@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
-//IMPORT COMMENTS HERE
-//IMPORT LIKES HERE
+import Comments from "../Comment";
+import Likes from "../likes";
 //IMPORT STYLE HERE
 import * as PostActions from "../../api/PostActions";
 //comments again
