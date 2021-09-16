@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import * as PostActions from "../../api/PostActions";
 import { func, string } from "prop-types";
 
-const Comment = ({ id, author, body, getCommentsAgain, commentId}) => {
+const Comments = ({ id, author, body, getCommentsAgain, commentId}) => {
     console.log(author, "Wrote the comment")
     const [isEditing, setIsEditing] = useState(false);
     const [editedAuthor, setAuthor] = useState(author);
@@ -64,4 +64,4 @@ Comment.prototypes = {
     getCommentsAgain: func,
 };
 
-export default Comment;
+export default Comments;

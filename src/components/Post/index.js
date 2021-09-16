@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react";
-//IMPORT COMMENTS HERE
-//IMPORT LIKES HERE
+import Comments from "../Comment";
+import Likes from "../likes";
 //IMPORT STYLE HERE
 import * as PostActions from "../../api/PostActions";
-//comments again
+import CommentForm from "../CommentForm";
+import { func, string, array } from "prop-types";
 
 const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -69,8 +70,46 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
                 <button onClick={() => handleDelete()}>Delete Post</button>
              </div>
             }
+            <div className="like-level">
+                <Likes />
+            </div>
+            <div className="comments">
+                <h3>Comments</h3>
+                {comments.map((comment) => {
+                    console.log("this is the comments: ", comment);
+                    return (
+                        <Comments 
+                            author={comment.author}
+                            body={comment.body}
+                            key={comment._id}
+                            commentId={comment._id}
+                            id={id}
+                            getCommentsAgain={(id) => fetchComments(id)}
+                        />
+                    );
+                })}
+            </div>
+            <CommentForm 
+                id={id}
+                user={user}
+                getPostsAgain={() => getPostsAgain()}
+                getCommentsAgain={() => fetchComments(id)}
+            />
         </div>
     )
 }
+
+Post.propTypes = {
+    id: string.isRequired,
+    title: string.isRequired,
+    author: string.isRequired,
+    body: string.isRequired,
+    postComments: array,
+    getPostsAgain: func,
+};
+
+Post.defaultProps = {
+    author: "Neo"
+};
 
 export default Post
