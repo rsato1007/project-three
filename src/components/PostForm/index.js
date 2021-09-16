@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import * as PostActions from "../../api/PostActions";
+import GifFinder from "../GifFinder";
 
 const PostForm = (props) => {
     const [postBody, setPostBody] = useState('');
@@ -24,16 +25,19 @@ const PostForm = (props) => {
     }
     
     return (
-        <form className="login-inputs" onSubmit={(e) => submitPost(e)}>
-        <input 
-            onChange={(e) => setPostBody(e.target.value)}
-            value={postBody}
-            type="text"
-            name="body"
-            placeholder="Say Something"
-        />
-        <button type="submit">Post</button>
-    </form>
+        <div>
+            <form className="login-inputs" onSubmit={(e) => submitPost(e)}>
+                <input 
+                    onChange={(e) => setPostBody(e.target.value)}
+                    value={postBody}
+                    type="text"
+                    name="body"
+                    placeholder="Say Something"
+                />
+                <button type="submit">Post</button>
+            </form>
+            <GifFinder />
+        </div>
     )
 }
 
