@@ -9,36 +9,36 @@ const getFriends = () => {
     return CommonsCommands.get(/*POST ID IN HERE*/);
 };
 //gets one post 
-const get = () => {
-    return CommonsCommands.get(/*POST ID IN HERE*/);
+const get = (id) => {
+    return CommonsCommands.get(`/posts/${id}`);
 };
 //gets all comments o0n a post
-const getAllComments = () => {
-    return CommonsCommands.get(/*POST ID IN HERE*/);
+const getAllComments = (id) => {
+    return CommonsCommands.get(`/posts/${id}/comments`);
 };
 // make a post
 const create = (data) => {
-    return CommonsCommands.post("/posts", data);
+    return CommonsCommands.post(`/posts`, data);
 };
 // make comments
-const createComment = () => {
-    return CommonsCommands.get(/*POST ID IN HERE*/);
+const createComment = (id, data) => {
+    return CommonsCommands.post(`/posts/${id}/comment`, data);
 };
 //Updates post to new info
 const edit = (id, data) => {
     return CommonsCommands.put(`/posts/${id}`, data);
 };
 //updates comments to new info
-const editComment = () => {
-    return CommonsCommands.put(/*POST ID IN HERE*/);
+const editComment = (id, commentId, data) => {
+    return CommonsCommands.put(`/posts/${id}/comment/${commentId}`, data);
 };
 //deletes post
 const remove = (id) => {
     return CommonsCommands.delete(`/posts/${id}`);
 };
 //deletes comment
-const removeComment = () => {
-    return CommonsCommands.delete(/*POST ID IN HERE*/);
+const removeComment = (id, commentId) => {
+    return CommonsCommands.delete(`posts/${id}/comment/${commentId}`);
 };
 
 //exports from the api
