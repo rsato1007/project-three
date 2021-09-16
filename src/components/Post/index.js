@@ -4,7 +4,7 @@ import Likes from "../likes";
 //IMPORT STYLE HERE
 import * as PostActions from "../../api/PostActions";
 import CommentForm from "../CommentForm";
-//comments again
+import { func, string, array } from "prop-types";
 
 const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -98,5 +98,18 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
         </div>
     )
 }
+
+Post.propTypes = {
+    id: string.isRequired,
+    title: string.isRequired,
+    author: string.isRequired,
+    body: string.isRequired,
+    postComments: array,
+    getPostsAgain: func,
+};
+
+Post.defaultProps = {
+    author: "Neo"
+};
 
 export default Post
