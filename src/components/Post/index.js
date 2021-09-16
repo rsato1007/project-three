@@ -3,6 +3,7 @@ import Comments from "../Comment";
 import Likes from "../likes";
 //IMPORT STYLE HERE
 import * as PostActions from "../../api/PostActions";
+import CommentForm from "../CommentForm";
 //comments again
 
 const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
@@ -69,6 +70,9 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
                 <button onClick={() => handleDelete()}>Delete Post</button>
              </div>
             }
+            <div className="like-level">
+                <Likes />
+            </div>
             <div className="comments">
                 <h3>Comments</h3>
                 {comments.map((comment) => {
@@ -85,7 +89,12 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
                     );
                 })}
             </div>
-            
+            <CommentForm 
+                id={id}
+                user={user}
+                getPostsAgain={() => getPostsAgain()}
+                getCommentsAgain={() => fetchComments(id)}
+            />
         </div>
     )
 }
