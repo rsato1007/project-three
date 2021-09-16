@@ -69,6 +69,23 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
                 <button onClick={() => handleDelete()}>Delete Post</button>
              </div>
             }
+            <div className="comments">
+                <h3>Comments</h3>
+                {comments.map((comment) => {
+                    console.log("this is the comments: ", comment);
+                    return (
+                        <Comments 
+                            author={comment.author}
+                            body={comment.body}
+                            key={comment._id}
+                            commentId={comment._id}
+                            id={id}
+                            getCommentsAgain={(id) => fetchComments(id)}
+                        />
+                    );
+                })}
+            </div>
+            
         </div>
     )
 }
