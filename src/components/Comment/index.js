@@ -4,7 +4,7 @@ import * as PostActions from "../../api/PostActions";
 import { func, string } from "prop-types";
 
 const Comments = ({ id, author, body, getCommentsAgain, commentId}) => {
-    console.log(author, "Wrote the comment")
+    /* Author on page is the id number and the actual author name */
     const [isEditing, setIsEditing] = useState(false);
     const [editedAuthor, setAuthor] = useState(author);
     const [editedBody, setBody] = useState(body);

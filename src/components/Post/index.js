@@ -76,7 +76,6 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
             <div className="comments">
                 <h3>Comments</h3>
                 {comments.map((comment) => {
-                    console.log("this is the comments: ", comment);
                     return (
                         <Comments 
                             author={comment.author}
@@ -91,8 +90,8 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
             </div>
             <CommentForm 
                 id={id}
-                user={user}
-                getPostsAgain={() => getPostsAgain()}
+                user={Token._id}
+                getPostsAgain={getPosts}
                 getCommentsAgain={() => fetchComments(id)}
             />
         </div>

@@ -8,7 +8,7 @@ router.get("/:id/comments", posts.showComments);
 
 router.use(require("../config/auth"));
 router.post("/", posts.create);
-router.post("/:id/comments/:commentId", posts.createComment);
+router.post("/:id/comment", posts.createComment);
 router.post("/:id/comment/:commentid", posts.updateComment);
 router.put("/:id", posts.update);
 router.delete("/:id", posts.destroy);
