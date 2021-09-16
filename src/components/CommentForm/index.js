@@ -6,10 +6,8 @@ import { func, string } from "prop-types";
 const CommentForm = ({ id, getCommentsAgain, getPostsAgain, user }) => {
     const [body, setBody] = useState("");
     const handleSubmit = async () => {
-        let newComment = {author: user_id, body, id};
-        console.log("new comment created");
+        const newComment = {author: user, body, id};
         const res = await PostActions.createComment(id, newComment);
-
         if (res.status === 201) {
             setBody("");
             getCommentsAgain(id);
