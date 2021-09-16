@@ -12,9 +12,10 @@ const GifFinder = () => {
         }
         const res = await GifActions.getGifs(gifInfo);
 
-        // const fetchURL = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_Key}&q=${search}&limit=20&offset=0&rating=g&lang=en`;
-        // const response = await fetch(fetchURL);
-        // const incomingData = await response.json();
+        if (res.data.data.data) {
+            setApiData(res.data.data.data);
+            console.log("Here's what the backend sent:", res.data.data.data);
+        }
     }
     // Write a function that goes into the backend to grab the API information.
 
