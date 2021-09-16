@@ -12,6 +12,10 @@ const getFriends = () => {
 const get = (id) => {
     return CommonsCommands.get(`/posts/${id}`);
 };
+//get all posts by author
+const getAllPostsByAuthor = (author) => {
+    return CommonsCommands.get(`/posts/${author}/`);
+};
 //gets all comments o0n a post
 const getAllComments = (id) => {
     return CommonsCommands.get(`/posts/${id}/comments`);
