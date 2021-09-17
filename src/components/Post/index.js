@@ -36,9 +36,7 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
         const res = await PostActions.getAllComments(id);
         if (res.data.data) {
             /* ToDo: we want the comments to "refresh" when a comment is edited */
-            console.log("We good?", res.data.data);
             setComments(res.data.data);
-            console.log("postComments?", postComments);
         }
     };
 
