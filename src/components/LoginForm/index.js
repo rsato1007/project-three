@@ -33,7 +33,8 @@ const LoginForm = () => {
 
         //fill with relevant code when hooked to back-end user api.
         const res = await UserActions.login(user);
-
+        
+        console.log("This what the backend responded with:", res);
         if (res.data.correct) {
             const token = res.data.data.token;
             createToken(token);
@@ -41,7 +42,7 @@ const LoginForm = () => {
             setPassword("");
             history.push("/commons");
         } else {
-            alert('Login Error, try again');
+            // alert('Login Error, try again');
         }
     };
 

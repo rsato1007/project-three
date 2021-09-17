@@ -6,5 +6,4 @@ router.use("/users", require('./users'));
 router.use("/gifs", require("./gifs"));
 router.use("/auth", require("./auth"));
 
-
 module.exports = router;
