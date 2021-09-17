@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== "production") {
     HOST = "http://localhost:5000/api";
 }
 else {
-    // HOST ="https://project3-app-flex525.herokuapp.com/api"
+    HOST ="https://project3-app-flex525.herokuapp.com/api"
 }
 
 export default axios.create({
