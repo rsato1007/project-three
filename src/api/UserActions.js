@@ -8,7 +8,9 @@ const make = (data) => {
 };
 
 const login = (data) => {
-    return CommonsCommands.post("/auth/login", data);
+    /* For a reason, I don't quite understand, the login doesn't work unless you add
+    /api to the route. Please don't remove until cause is determined */
+    return CommonsCommands.post("/api/auth/login", data);
 };
 
 const getUser = () => {
