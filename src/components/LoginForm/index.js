@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
 import * as UserActions from "../../api/UserActions";
 import { createToken } from "../../Tools/TokenAction";
-import { GoogleLogin } from 'react-google-login';
-import axios from 'axios';
+
+
 
 
 const LoginForm = () => {
@@ -12,14 +12,6 @@ const LoginForm = () => {
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
 
-    const responseGoogle = (response) => {
-        console.log(response);
-        axios({
-          method: "POST",
-          url: "http://localhost:5000/api/googlelogin",
-          data: {tokenId: response.tokenId}
-        })
-      };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -64,15 +56,6 @@ const LoginForm = () => {
                     placeholder="PASSWORD"
                 />
                 <button type="submit">Login</button>
-                <div>
-                <GoogleLogin
-                    clientId="171760147395-f8qjda0lvn765bo9rsbifb6gp5q0hvu9.apps.googleusercontent.com"
-                    buttonText="Login with Google"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                />
-                </div>
             </form>
             <Link to="/">
                 Sign Up
