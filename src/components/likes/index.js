@@ -6,7 +6,6 @@ const Likes = () => {
     const [likes, setLikes] = useState(0);
 
     useEffect(() => {
-        console.log("liked")
     }, [likes]);
 
 

@@ -10,22 +10,24 @@ const Comments = ({ id, author, body, getCommentsAgain, commentId}) => {
     const [editedBody, setBody] = useState(body);
 
     //deals with editing comments
-    const handleEdit = async () => {
-        console.log("handled the edit")
+    const handleEdit = async (event) => {
+        if (event) {
+            event.preventDefault();
+        }
         setIsEditing(!isEditing);
         if (isEditing) {
             let editedComment = {
                 author: editedAuthor,
                 body: editedBody,
             };
-            await PostActions.editComment(id, commentId, editedComment);
-            getCommentsAgain();
+            const res = await PostActions.editComment(id, commentId, editedComment);
+            getCommentsAgain(id);
         }
     };
 
     //handles deleting comments
     const handleDelete = async () => {
-        await PostActions.removeComment(id, commentId);
+        const res = await PostActions.removeComment(id, commentId);
         getCommentsAgain(id);
     };
 
@@ -33,10 +35,14 @@ const Comments = ({ id, author, body, getCommentsAgain, commentId}) => {
     return (
         <div className="comment">
             <span className="enter-comment">
-                {!isEditing && <b>{author}</b>}
+                {!isEditing && (
+                    <div className="comment-wrapper">
+                        <p>{author}: {body}</p>
+                    </div>
+                )}
                 {isEditing && (
                     <input 
-                        onChange={(e) => setAuthor(e.target.value)}
+                        onChange={(e) => setBody(e.target.value)}
                         value={editedBody}
                         type="text"
                         name="author"
@@ -45,7 +51,7 @@ const Comments = ({ id, author, body, getCommentsAgain, commentId}) => {
                 )}
             </span>
             <span className="comment-buttons">
-                <button onClick={handleEdit}>
+                <button onClick={(e) => handleEdit(e)}>
                     {isEditing ? "SUBMIT" : "EDIT"}
                 </button>
                 <button onClick={handleDelete}>
