@@ -33,6 +33,7 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
     };
     //function for showing comments
     const fetchComments = async (id) => {
+        console.log("Grabbing comments again");
         let res = await PostActions.getAllComments(id);
         if (res.status === 200) {
             setComments(res.data.data);

@@ -19,7 +19,6 @@ const index = (req, res) => {
 const show = (req, res) => {
     db.Post.findById(req.params.id, (err, foundPost) => {
         if (err) return console.log("Error in Posts#show:", err);
-
         return res.status(200).json({
             message: "Success",
             data: foundPost,
@@ -98,8 +97,8 @@ const update = (req, res) => {
 const updateComment = (req, res) => {
     db.Post.findById(req.params.id).then((foundPost) => {
         if (!foundPost) return console.log("Error in Comment#update");
-
-        const commentById = foundPost.comments.id(req.params.commentId);
+        const commentById = foundPost.comments.id(req.params.commentid);
+        console.log("Here's the comment", commentById);
         commentById.author = req.body.author;
         commentById.body = req.body.body;
         foundPost.save();

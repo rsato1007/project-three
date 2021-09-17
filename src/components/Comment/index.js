@@ -11,14 +11,16 @@ const Comments = ({ id, author, body, getCommentsAgain, commentId}) => {
 
     //deals with editing comments
     const handleEdit = async () => {
-        console.log("handled the edit")
         setIsEditing(!isEditing);
         if (isEditing) {
             let editedComment = {
                 author: editedAuthor,
                 body: editedBody,
             };
-            await PostActions.editComment(id, commentId, editedComment);
+            console.log("Here's the edited comment:", editedComment);
+            console.log("Here's the post id then comment id:", id, commentId);
+            const res = await PostActions.editComment(id, commentId, editedComment);
+            console.log("Here's the response I get", res);
             getCommentsAgain();
         }
     };
@@ -33,10 +35,14 @@ const Comments = ({ id, author, body, getCommentsAgain, commentId}) => {
     return (
         <div className="comment">
             <span className="enter-comment">
-                {!isEditing && <b>{author}</b>}
+                {!isEditing && (
+                    <div className="comment-wrapper">
+                        <p>{author}: {body}</p>
+                    </div>
+                )}
                 {isEditing && (
                     <input 
-                        onChange={(e) => setAuthor(e.target.value)}
+                        onChange={(e) => setBody(e.target.value)}
                         value={editedBody}
                         type="text"
                         name="author"
