@@ -1,8 +1,9 @@
 import axios from "axios"
 
 console.log('Whats that env?', process.env.NODE_ENV);
+console.log("DON'T FORGET TO CHANGE === TO !==");
 let HOST;
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV === "production") {
     HOST = "http://localhost:5000/api";
 }
 else {
