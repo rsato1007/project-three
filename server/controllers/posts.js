@@ -43,13 +43,11 @@ const showComments = (req, res) => {
 
 //Create Post STATUS 201
 const create = (req, res ) => {
-    console.log("req.body:", req.body);
     /* Commented out the code because the server was throwing an error, verified in the MongoDB database
     that the post went through wtih no issue */
     // req.body.author = mongoose.Types.ObjectsId(req.body.author);
     db.Post.create(req.body, (err, savedPost) => {
         savedPost.populate("author");
-        console.log(savedPost, "Saved Post In Create Post");
         if (err) return console.log("Error in Posts#create:", err);
 
         return res.status(201).json({
@@ -98,7 +96,6 @@ const updateComment = (req, res) => {
     db.Post.findById(req.params.id).then((foundPost) => {
         if (!foundPost) return console.log("Error in Comment#update");
         const commentById = foundPost.comments.id(req.params.commentid);
-        console.log("Here's the comment", commentById);
         commentById.author = req.body.author;
         commentById.body = req.body.body;
         foundPost.save();
@@ -126,9 +123,7 @@ const destroy = (req, res) => {
 const destroyComment = (req, res) => {
     db.Post.findById(req.params.id).then((foundPost) => {
         if (!foundPost) return console.log("error in comment#destroy");
-
         const commentById = foundPost.comments.id(req.params.commentId);
-        console.log(commentId);
         commentById.remove();
         foundPost.save();
 

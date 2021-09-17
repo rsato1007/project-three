@@ -27,16 +27,18 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
     };
     //function for deleting post
     const handleDelete = async () => {
-        await PostActions.remove(id);
+        const res = await PostActions.remove(id);
         //reload posts
         getPosts();
     };
     //function for showing comments
     const fetchComments = async (id) => {
-        console.log("Grabbing comments again");
-        let res = await PostActions.getAllComments(id);
-        if (res.status === 200) {
+        const res = await PostActions.getAllComments(id);
+        if (res.data.data) {
+            /* ToDo: we want the comments to "refresh" when a comment is edited */
+            console.log("We good?", res.data.data);
             setComments(res.data.data);
+            console.log("postComments?", postComments);
         }
     };
 
@@ -76,7 +78,7 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
             </div>
             <div className="comments">
                 <h3>Comments</h3>
-                {comments.map((comment) => {
+                {postComments.map((comment) => {
                     return (
                         <Comments 
                             author={comment.author}

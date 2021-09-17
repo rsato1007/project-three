@@ -10,24 +10,24 @@ const Comments = ({ id, author, body, getCommentsAgain, commentId}) => {
     const [editedBody, setBody] = useState(body);
 
     //deals with editing comments
-    const handleEdit = async () => {
+    const handleEdit = async (event) => {
+        if (event) {
+            event.preventDefault();
+        }
         setIsEditing(!isEditing);
         if (isEditing) {
             let editedComment = {
                 author: editedAuthor,
                 body: editedBody,
             };
-            console.log("Here's the edited comment:", editedComment);
-            console.log("Here's the post id then comment id:", id, commentId);
             const res = await PostActions.editComment(id, commentId, editedComment);
-            console.log("Here's the response I get", res);
-            getCommentsAgain();
+            getCommentsAgain(id);
         }
     };
 
     //handles deleting comments
     const handleDelete = async () => {
-        await PostActions.removeComment(id, commentId);
+        const res = await PostActions.removeComment(id, commentId);
         getCommentsAgain(id);
     };
 
@@ -51,7 +51,7 @@ const Comments = ({ id, author, body, getCommentsAgain, commentId}) => {
                 )}
             </span>
             <span className="comment-buttons">
-                <button onClick={handleEdit}>
+                <button onClick={(e) => handleEdit(e)}>
                     {isEditing ? "SUBMIT" : "EDIT"}
                 </button>
                 <button onClick={handleDelete}>
