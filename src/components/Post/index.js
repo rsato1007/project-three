@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Comments from "../Comment";
 import Likes from "../likes";
-//IMPORT STYLE HERE
+import "./styles.css";
 import * as PostActions from "../../api/PostActions";
 import CommentForm from "../CommentForm";
 import { func, string, array } from "prop-types";
@@ -58,10 +58,10 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token, gif }) => {
                 </form>)
             //  This appears when user is not editing post
              : (<div className="post-wrapper">
-                    <div>
+                    <div className="body">
                         {!gif ? 
                          Body :
-                         <img src={Body} height="80" width="80"></img>
+                         <img className="gif" src={Body}></img>
                         }
                     </div>
                     <div>{Author.Name}</div>
@@ -113,7 +113,7 @@ Post.propTypes = {
 };
 
 Post.defaultProps = {
-    author: "Neo"
+    Author: "Neo"
 };
 
 export default Post
