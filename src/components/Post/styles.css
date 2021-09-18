@@ -1,0 +1,28 @@
+.common-post {
+    padding: 2em;
+    border: 0.5em solid black;
+    margin: 2em;
+}
+
+.gif {
+    display: flex;
+    padding: 1em;
+    height: 15em;
+    width: 15em;
+}
+
+
+@media (max-width: 800px) {
+    .common-post {
+        padding: 2em;
+        border: 0.5em solid black;
+        margin: 2em;
+    }
+    
+    .gif {
+        display: flex;
+        padding: 1em;
+        height: 10em;
+        width: 10em;
+    }
+}
