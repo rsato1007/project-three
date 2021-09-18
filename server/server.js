@@ -4,6 +4,9 @@ const path = require("path");
 const express = require('express');
 const cors = require('cors');
 
+
+
+
 /* Import Internal Modules */
 const routes = require("./routes");
 
@@ -12,6 +15,7 @@ const app = express();
 
 /* Configurations */
 const PORT = process.env.PORT || 5000;
+
 
 /* Middleware */
 //Cors
@@ -32,8 +36,10 @@ app.use((req, res, next) => {
     next();
 });
 
+
 /* Routes and Controllers */
 app.use("/api", routes);
+
 
 /* React.JS Connection */
 app.use((req, res, next) => {
