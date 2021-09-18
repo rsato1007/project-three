@@ -3,6 +3,7 @@ import { Route, Link, Switch } from "react-router-dom";
 import SignupPage from "../../pages/SignUpPage";
 import LoginPage from "../../pages/LoginPage";
 import CommonsPage from "../../pages/CommonsPage";
+import "./styles.css";
 
 class Nav extends React.Component {
     render() {

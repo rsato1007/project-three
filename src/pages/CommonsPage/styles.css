@@ -1,4 +1,11 @@
 .create-post {
-    position: fixed;
+    position:fixed;
+    display: flex;
+    background-color: azure;
+    background-size: 100%;
+    margin-top: 0%;
+    background-position: 100%;
+}
+.welcome {
     display: flex;
 }
