@@ -1,3 +1,34 @@
+##Introduction:
+####The Commons is an environment were a post in a general form, include gift on the posts, make comments on
+
+##Technologies Used:
+<ul>
+<li>React</li>
+<li>CSS</li> 
+<li>JavaScript</li>
+<li>Mongoose</li>
+<li>MongoDB</li>
+<li>Express</li>
+<li>DotEnv</li>
+<li>axios</li>
+<li>bcrypt</li>
+<li>cors</li>
+<li>express-session</li>
+<li>jsonwebtoken</li>
+<li>draw.io</li>
+<li>Trello</li>
+<li>figma</li>
+<li>body-parser</li>
+<li>passport</li>
+</ul>
+
+##Getting Started: 
+[Link to Trello project board](https://trello.com/b/DJdsLKKn/project-3)
+[Link to The Commons App on heroku](http://project3-app-flex525.herokuapp.com/)
+
+##Unsolved Problems: List any unsolved issues.
+
+##Future Enhancements: Identify future features and enhancements planned for the project.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
