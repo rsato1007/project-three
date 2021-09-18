@@ -13,7 +13,6 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
     //function for editing post
     const handleEdit = async (event) => {
         event.preventDefault();
-        console.log("many edits, Handle it!");
         setIsEditing(!isEditing);
         // submit is visible
         if (isEditing) {

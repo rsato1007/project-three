@@ -20,7 +20,7 @@ const PostForm = (props) => {
             setPostBody("");
             props.getPosts(event);
         } else {
-            alert("Post Error. Try Again.")
+            alert("Post Error. Try Again.");
         }
     }
     
@@ -36,7 +36,7 @@ const PostForm = (props) => {
                 />
                 <button type="submit">Post</button>
             </form>
-            <GifFinder />
+            <GifFinder setPostBody={setPostBody}/>
         </div>
     )
 }

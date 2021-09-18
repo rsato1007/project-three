@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import * as GifActions from "../../api/GifActions";
 
-const GifFinder = () => {
+const GifFinder = ({ setPostBody }) => {
     const [search, setSearch] = useState("");
     const [gifNum, setGifNum] = useState(6);
     const [apiData, setApiData] = React.useState([]);
@@ -13,8 +13,6 @@ const GifFinder = () => {
             limit: gifNum
         }
         const res = await GifActions.getGifs(gifInfo);
-
-        console.log("Here's the gif response:", res);
 
         if (res.data.data.data) {
             setApiData(res.data.data.data);
@@ -37,7 +35,7 @@ const GifFinder = () => {
             </form>
             {apiData.map((gif) => {
                 return (
-                    <img src={gif.images.original.url} height="80" width="80" onClick={() => console.log("clicked")}></img>
+                    <img src={gif.images.original.url} height="80" width="80" onClick={(e) => setPostBody(e.target.src)}></img>
                 )
             })}
         </div>
