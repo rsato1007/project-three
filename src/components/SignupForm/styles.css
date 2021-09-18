@@ -27,3 +27,6 @@ input {
     display:flex;
     padding: 6px;
 }
+a.signup-inputs {
+    display: flex;
+}

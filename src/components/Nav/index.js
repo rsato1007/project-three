@@ -9,7 +9,7 @@ import PersonalPage from "../../pages/PersonalPage";
 class Nav extends React.Component {
     render() {
         return (
-            <div className="nav-bar">
+            <div>
                 <div className="commons-nav">
                     <Link to="/">
                         {/* This will need to be changed */}
