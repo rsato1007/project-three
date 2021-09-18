@@ -32,10 +32,9 @@ const CommonsPage = () => {
             </div>
             <PostForm Token={Token} getPosts={(e) => getPosts(e)}/>
             {Posts.map((post) => {
+                // This code determines if gif or not
                 const regex = /(https):\/\/(media)[0-9].(giphy).(com)\/(media)/;
-                console.log("welp", post.body);
                 const result = regex.test(post.body);
-                console.log("This is a gif", result);
                 return (
                     <Post 
                         Body={post.body} 
@@ -44,7 +43,8 @@ const CommonsPage = () => {
                         Token={Token} 
                         id={post._id} 
                         getPosts={getPosts} 
-                        comments={post.comments}/>
+                        comments={post.comments}
+                        gif={result}/>
                 )
             })}
         </div>

@@ -6,7 +6,7 @@ import * as PostActions from "../../api/PostActions";
 import CommentForm from "../CommentForm";
 import { func, string, array } from "prop-types";
 
-const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
+const Post = ({ id, getPosts, Body, Author, Date, comments, Token, gif }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [editedBody, setBody] = useState(Body);
     const [postComments, setComments] = useState([]);
@@ -58,7 +58,12 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token }) => {
                 </form>)
             //  This appears when user is not editing post
              : (<div className="post-wrapper">
-                    <div>{Body}</div>
+                    <div>
+                        {!gif ? 
+                         Body :
+                         <img src={Body} height="80" width="80"></img>
+                        }
+                    </div>
                     <div>{Author.Name}</div>
                     <div>{Date}</div>
                 </div>)
