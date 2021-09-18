@@ -3,6 +3,7 @@ import { getUserFromToken } from "../../Tools/TokenAction";
 import Post from "../../components/Post";
 import PostForm from "../../components/PostForm";
 import * as PostActions from "../../api/PostActions";
+import "./styles.css"
 
 const CommonsPage = () => {
     const [Token, setToken] = useState(getUserFromToken());
@@ -27,10 +28,12 @@ const CommonsPage = () => {
     return (
         <div className="commons-page">
         {/* Search for a friend component */}
-            <div>
+            <div className="welcome">
                 Welcome Back {Token.Name}!
             </div>
-            <PostForm Token={Token} getPosts={(e) => getPosts(e)}/>
+            <div className="create-post">
+            <PostForm  Token={Token} getPosts={(e) => getPosts(e)}/>
+            </div>
             {Posts.map((post) => {
                 // This code determines if gif or not
                 const regex = /(https):\/\/(media)[0-9].(giphy).(com)\/(media)/;
