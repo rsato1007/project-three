@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const index = (req, res) => {
     console.log("REQ.USER: ", req.user);
     db.Post.find()
+        .sort('-date')
         .populate("author").exec((err, populatePosts) => {
             return res.status(200).json({
                 message: "Success",
