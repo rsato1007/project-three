@@ -58,7 +58,7 @@ const Post = ({ id, getPosts, Body, Author, Date, comments, Token, gif }) => {
                 </form>)
             //  This appears when user is not editing post
              : (<div className="post-wrapper">
-                    <div>
+                    <div className="body">
                         {!gif ? 
                          Body :
                          <img className="gif" src={Body}></img>
