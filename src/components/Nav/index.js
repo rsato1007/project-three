@@ -32,10 +32,10 @@ class Nav extends React.Component {
                         path="/commons"
                         render={(props) => <CommonsPage {...props} />}
                     />
-                    <Route>
+                    <Route
                         path="/profile"
                         render={(props) => <PersonalPage {...props} />}
-                    </Route>
+                        />
                 </Switch>
             </div>
         );
