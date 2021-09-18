@@ -46,4 +46,4 @@ const removeComment = (id, commentId) => {
 };
 
 //exports from the api
-export { get, getAll, getFriends, getAllComments, create, createComment, edit, editComment, remove, removeComment, };
+export { get, getAll, getFriends, getAllPostsByAuthor, getAllComments, create, createComment, edit, editComment, remove, removeComment, };

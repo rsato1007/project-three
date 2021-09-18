@@ -1,0 +1,20 @@
+.login-page {
+    width: 100vh;
+    display: flex;
+    align-content: stretch;
+    justify-content: center;
+    padding: 8px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+}
+.login-form {
+    width: 100vh;
+    display: flex;
+    align-content: stretch;
+    justify-content: center;
+    padding: 8px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+}

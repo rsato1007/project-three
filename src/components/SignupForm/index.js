@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import "./styles.css";
+import Header  from "../Header"
 import { useHistory, Link } from 'react-router-dom';
 import * as UserActions from "../../api/UserActions";
 import { createToken } from "../../Tools/TokenAction";
@@ -49,7 +51,8 @@ const SignupForm = () => {
 
     // Page Render
     return (
-        <div className="signup-form">
+        <div className="signup-page">
+            <Header />
             <form className="signup-inputs" onSubmit={(e) => handleSubmit(e)}>
                 <input 
                     onChange={(e) => setEmail(e.target.value)}

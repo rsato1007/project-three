@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "./styles.css";
 import reportWebVitals from './reportWebVitals';
 import Nav from './components/Nav';
 import { BrowserRouter as Router } from "react-router-dom";

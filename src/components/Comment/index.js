@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-//make style page and import
 import * as PostActions from "../../api/PostActions";
 import { func, string } from "prop-types";
 

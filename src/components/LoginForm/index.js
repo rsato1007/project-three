@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header  from "../Header";
 import { useHistory, Link } from "react-router-dom";
 import * as UserActions from "../../api/UserActions";
 import { createToken } from "../../Tools/TokenAction";
@@ -40,6 +41,7 @@ const LoginForm = () => {
 
     return (
         <div className="login-form">
+            <Header />
             <form className="login-inputs" onSubmit={(e) => handleSubmit(e)}>
                 <input 
                     onChange={(e) => setEmail(e.target.value)}
