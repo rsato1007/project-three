@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState } from "react";
 import { getUserFromToken } from "../../Tools/TokenAction";
 import Post from "../../components/Post";
 import PostForm from "../../components/PostForm";
+import Logout from '../../components/Logout';
 import * as PostActions from "../../api/PostActions";
 
 const CommonsPage = () => {
@@ -24,6 +25,8 @@ const CommonsPage = () => {
         setToken(Token._id ? Token : Token[0]);
         getPosts();
     },[]);
+
+    
     return (
         <div className="commons-page">
         {/* Search for a friend component */}
@@ -43,6 +46,9 @@ const CommonsPage = () => {
                         comments={post.comments}/>
                 )
             })}
+            <div>
+                <Logout />
+            </div>
         </div>
     )
 }

@@ -13,10 +13,12 @@ const login = (data) => {
     return CommonsCommands.post("/auth/login", data);
 };
 
+
+
 const getUser = () => {
     let user = TokenAction.getUserFromToken();
     console.log("Ladies and gentlemen, We got em: ", user);
     return user;
 };
 
-export { make, login, getUser };
+export { make, login, getUser};
