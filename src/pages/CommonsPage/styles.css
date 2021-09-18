@@ -2,7 +2,9 @@
     position:fixed;
     display: flex;
     background-color: azure;
-    background-size: cover;
+    background-size: 100%;
+    margin-top: 0%;
+    background-position: 100%;
 }
 .welcome {
     display: flex;
