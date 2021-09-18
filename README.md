@@ -1,7 +1,10 @@
 ##Introduction:
-####The Commons is an environment were a post in a general form, include gift on the posts, make comments on
+The Commons is an environment for people whom traditionally reject social media.  We made a common place for users to create/edit/delete posts and do the same with comments. A fun and unique feature is that ability to add gifs to your post.
 
-##Technologies Used:
+[Link to google form for UI/UX research](https://docs.google.com/forms/d/1O2J3TkdLbDbt9toyHhUzF9IMMAEarpFxJTk8oL4x_vk/edit?usp=sharing)
+![The Commons wireframe](/ReadMEDocuments/wireframeScreenshot.png)
+
+Technologies Used:
 <ul>
 <li>React</li>
 <li>CSS</li> 
@@ -20,6 +23,9 @@
 <li>figma</li>
 <li>body-parser</li>
 <li>passport</li>
+<li>google forms</li>>
+<li>tenor API</li>
+<li>Canva</li>
 </ul>
 
 ##Getting Started: 
@@ -27,7 +33,11 @@
 [Link to The Commons App on heroku](http://project3-app-flex525.herokuapp.com/)
 
 ##Unsolved Problems: List any unsolved issues.
-
+##Challenges:
+1. Communication. 
+    1. Keeping everyone on task and in the loop. (Trello helps but not prefect.)
+    2. Keeping communication channels open and aaccessable to all.
+2
 ##Future Enhancements: Identify future features and enhancements planned for the project.
 # Getting Started with Create React App
 
