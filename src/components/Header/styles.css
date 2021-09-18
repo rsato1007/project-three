@@ -4,6 +4,7 @@
     background: rgb(255, 255, 255);
   }
   .header img {
-    width: 100px;
-    height: 13px;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
   }

@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "./styles.css";
 import reportWebVitals from './reportWebVitals';
 import Nav from './components/Nav';
-import Header from './components/Header';
 import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Nav />
-      <Header />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
