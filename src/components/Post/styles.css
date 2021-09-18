@@ -11,6 +11,12 @@
     width: 15em;
 }
 
+.body {
+    padding: 1em;
+    display: flex;
+    font-size: medium;
+}
+
 
 @media (max-width: 800px) {
     .common-post {
