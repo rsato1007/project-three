@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles.css";
 import { Route, Link, Switch } from "react-router-dom";
 import SignupPage from "../../pages/SignUpPage";
 import LoginPage from "../../pages/LoginPage";
@@ -8,7 +9,7 @@ import PersonalPage from "../../pages/PersonalPage";
 class Nav extends React.Component {
     render() {
         return (
-            <div>
+            <div className="nav-bar">
                 <div className="commons-nav">
                     <Link to="/">
                         {/* This will need to be changed */}
