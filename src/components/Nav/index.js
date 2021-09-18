@@ -10,7 +10,7 @@ import "./styles.css";
 class Nav extends React.Component {
     render() {
         return (
-            <div>
+            <div className="navbar">
                 <div className="commons-nav">
                     <Link to="/">
                         {/* This will need to be changed */}

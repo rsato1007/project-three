@@ -1,0 +1,22 @@
+.form-submit-button {
+    background:grey;
+    color:white;
+    border-style:outset;
+    border-color:grey;
+    height:40px;
+    width:190px;
+    font:bold15px arial,sans-serif;
+    text-shadow:none;
+    display: grid;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.comment {
+	max-width: 640px;
+	margin: 30px auto;
+	background: #fff;
+	border-radius: 8px;
+	padding: 20px;
+}
+

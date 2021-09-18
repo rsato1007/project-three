@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import "./styles.css";
 import * as PostActions from "../../api/PostActions";
 import GifFinder from "../GifFinder";
 
@@ -30,10 +31,10 @@ const PostForm = (props) => {
     }
     
     return (
-        <div>
+        <div className="form">
             {!useGif &&
                 <form className="login-inputs" onSubmit={(e) => submitPost(e)}>
-                        <input 
+                        <input className="comment"
                             onChange={(e) => setPostBody(e.target.value)}
                             value={postBody}
                             type="text"
@@ -41,7 +42,7 @@ const PostForm = (props) => {
                             placeholder="Say Something"
                         />
 
-                    <button type="submit">Post</button>
+                    <button className="form-submit-button " type="submit">Post</button>
                 </form>
             }
             {useGif &&
@@ -49,7 +50,7 @@ const PostForm = (props) => {
                     <GifFinder setPostBody={setPostBody} submitPost={(e) => submitPost(e)}/>
                 </div>
             }
-            <button onClick={useGifInstead}>
+            <button className="form-submit-button" onClick={useGifInstead}>
                 {useGif ? "Write a Post" : "Use a Gif" }
             </button>
         </div>
