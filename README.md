@@ -1,6 +1,13 @@
 Introduction: <br>
 The Commons is an environment for people whom traditionally reject social media.  We made a common place for users to create/edit/delete posts and do the same with comments. A fun and unique feature is the ability to add gifs to your posts and comments.
-#### UI/UX Research
+#### Userflow:
+AAU: I want to connect with friends online.<br>
+AAU: I want a simple user interface. <br>
+AAU: I want to create posts.<br>
+AAU: I want to be able to comment on posts.<br>
+AAU: I want to be able to see all of my posts<br>
+AAU: I want to be able to see all posts in my Commons Community<br>
+#### UI/UX Research:
 [Link to google form for UI/UX research](https://docs.google.com/forms/d/1O2J3TkdLbDbt9toyHhUzF9IMMAEarpFxJTk8oL4x_vk/edit?usp=sharing )<br>
 #### Wireframe:
 ![The Commons wireframe](./ReadMEDocuments/wireframeScreenShot.png) <br><br><br>
@@ -32,23 +39,31 @@ Technologies Used:
 <li>Canva</li>
 </ul>
 
-Getting Started: <br>
+## Getting Started: <br>
 [Link to Trello project board](https://trello.com/b/DJdsLKKn/project-3) <br>
 [Link to The Commons App on heroku](http://project3-app-flex525.herokuapp.com/)
 
-## Unsolved Problems: List any unsolved issues.
+## Unsolved Problems: List any unsolved issues:
+
 ## Challenges:
 1. Communication. 
     1. Keeping everyone on task and in the loop. (Trello helps but not prefect)
-    2. Keeping communication channels open and aaccessable to all.(slack channel/discord)
-2. Google Auth
-3. Time Management:
+    2. Keeping communication channels open and accessible to all.(slack channel/discord)
+
+2. Time Management:
     1. Trello assignments
     2. knowing when to say no more! It is taking too long, time to move on.
-    3.
+3. Organization:
+    1. Better use of Trello
+    2. transparency of planning
+4. Google Auth
+5. Tenor API
 
 
 ## Future Enhancements: Identify future features and enhancements planned for the project.
+1. Commoners(friends section)
+2. ability to view Commoners profile
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
