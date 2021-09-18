@@ -1,6 +1,6 @@
 Introduction: <br>
 The Commons is an environment for people whom traditionally reject social media.  We made a common place for users to create/edit/delete posts and do the same with comments. A fun and unique feature is the ability to add gifs to your posts and comments.
-
+#### UI/UX Research
 [Link to google form for UI/UX research](https://docs.google.com/forms/d/1O2J3TkdLbDbt9toyHhUzF9IMMAEarpFxJTk8oL4x_vk/edit?usp=sharing )<br>
 #### Wireframe:
 ![The Commons wireframe](./ReadMEDocuments/wireframeScreenShot.png) <br><br><br>
@@ -39,9 +39,15 @@ Getting Started: <br>
 ## Unsolved Problems: List any unsolved issues.
 ## Challenges:
 1. Communication. 
-    1. Keeping everyone on task and in the loop. (Trello helps but not prefect.)
-    2. Keeping communication channels open and aaccessable to all.
-2
+    1. Keeping everyone on task and in the loop. (Trello helps but not prefect)
+    2. Keeping communication channels open and aaccessable to all.(slack channel/discord)
+2. Google Auth
+3. Time Management:
+    1. Trello assignments
+    2. knowing when to say no more! It is taking too long, time to move on.
+    3.
+
+
 ## Future Enhancements: Identify future features and enhancements planned for the project.
 # Getting Started with Create React App
 
