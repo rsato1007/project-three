@@ -46,8 +46,7 @@ const PostForm = (props) => {
             }
             {useGif &&
                 <div>
-                    <GifFinder setPostBody={setPostBody}/>
-                    <button onClick={(e) => submitPost(e)}>Post This Gif</button>
+                    <GifFinder setPostBody={setPostBody} submitPost={(e) => submitPost(e)}/>
                 </div>
             }
             <button onClick={useGifInstead}>
