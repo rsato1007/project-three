@@ -14,6 +14,8 @@ const GifFinder = () => {
         }
         const res = await GifActions.getGifs(gifInfo);
 
+        console.log("Here's the gif response:", res);
+
         if (res.data.data.data) {
             setApiData(res.data.data.data);
             setSearch("");
@@ -35,7 +37,7 @@ const GifFinder = () => {
             </form>
             {apiData.map((gif) => {
                 return (
-                    <img src={gif.url}/>
+                    <img src={gif.images.original.url} height="80" width="80" onClick={() => console.log("clicked")}></img>
                 )
             })}
         </div>
