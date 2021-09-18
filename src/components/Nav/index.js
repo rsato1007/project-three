@@ -3,6 +3,7 @@ import { Route, Link, Switch } from "react-router-dom";
 import SignupPage from "../../pages/SignUpPage";
 import LoginPage from "../../pages/LoginPage";
 import CommonsPage from "../../pages/CommonsPage";
+import PersonalPage from "../../pages/PersonalPage";
 
 class Nav extends React.Component {
     render() {
@@ -12,6 +13,9 @@ class Nav extends React.Component {
                     <Link to="/">
                         {/* This will need to be changed */}
                         Home
+                    </Link>
+                    <Link to="profile-nav">
+                        Profile
                     </Link>
                 </div>
                 <Switch>
@@ -28,6 +32,10 @@ class Nav extends React.Component {
                         path="/commons"
                         render={(props) => <CommonsPage {...props} />}
                     />
+                    <Route>
+                        path="/profile"
+                        render={(props) => <PersonalPage {...props} />}
+                    </Route>
                 </Switch>
             </div>
         );
