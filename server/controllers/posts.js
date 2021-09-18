@@ -17,7 +17,7 @@ const index = (req, res) => {
 // Show -Get (id)
 
 const show = (req, res) => {
-    db.Post.findById(req.params.id, (err, foundPost) => {
+    db.Post.find({author: req.params.id}, (err, foundPost) => {
         if (err) return console.log("Error in Posts#show:", err);
         return res.status(200).json({
             message: "Success",

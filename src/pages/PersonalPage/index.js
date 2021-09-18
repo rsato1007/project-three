@@ -14,10 +14,11 @@ const PersonalPage = () => {
             event.preventDefault();
         }
         //Get all posts from user("Author")
-        const res = await PostActions.getAllPostsByAuthor(author);
+        const res = await PostActions.getAllPostsByAuthor();
         setPosts(res.data.data);
     }
     useEffect(() => {
+        setToken(Token._id ? Token : Token[0]);
         getPosts();
     }, []);
     return (
@@ -27,6 +28,8 @@ const PersonalPage = () => {
             </div>
             <PostForm Token={Token} getPosts={(e) => getPosts(e)}/>
             {Posts.map((post) => {
+                const regex = /(https):\/\/(media)[0-9].(giphy).(com)\/(media)/;
+                const result = regex.test(post.body);
                 return (
                     <Post 
                         Body={post.body}
